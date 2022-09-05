@@ -15,7 +15,7 @@ public class GeralController {
        alerquina.login();
        String janelapadrao = alerquina.automatização();
        Entidade entidade = coringa.dadosEntidade();
-       String classes = entidade.getId_classe_judicial();
+       String classes =  entidade.getId_classe_judicial();
        String nome= entidade.getNome();
        int test= 0;
         Set<String> exceões = new HashSet<String>(Arrays.asList(
