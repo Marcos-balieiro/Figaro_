@@ -8,6 +8,7 @@ import repository.SeleniumRepositorio;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,10 +90,6 @@ public class BancoController {
 
                 Entidade entidade = new Entidade();
                 entidade.setNome(resultSet.getString("nome"));
-                entidade.setSigla(resultSet.getString("sigla"));
-                entidade.setId_classe_judicial(resultSet.getString("id_classe_judicial"));
-                entidade.setId_assunto(resultSet.getString("id_assunto"));
-
                 lista.add(entidade);
 
             }
@@ -102,4 +99,17 @@ public class BancoController {
         conexaoSQLite.desconectar();
         return lista;
     }
-}
+    public ResultSet listaentidade(){
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        conexaoSQLite.conectar();
+        String sql= "SELECT * FROM Entidade";
+        try{
+            PreparedStatement statement = conexaoSQLite.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            return statement.executeQuery();
+        }catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        }
+    }
+

@@ -11,8 +11,8 @@ import java.util.List;
 public class GeralController {
     private SeleniumRepositorio alerquina = new SeleniumRepositorio();
     private BancoController coringa = new BancoController();
-    public String figaro() throws InterruptedException, AWTException {
-       alerquina.login();
+    public String figaro(String CPF, String senha) throws InterruptedException, AWTException {
+       alerquina.login(CPF,senha);
        String janelapadrao = alerquina.automatização();
        Entidade entidade = coringa.dadosEntidade();
        String classes =  entidade.getId_classe_judicial();

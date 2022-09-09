@@ -35,6 +35,7 @@
 			<artifactId>selenium-remote-driver</artifactId>
 
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -46,6 +47,21 @@
 			<artifactId>testng</artifactId>
 			<version>RELEASE</version>
 			<scope>compile</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>16</version>
+        </dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-base</artifactId>
+			<version>16</version>
 		</dependency>
 	</dependencies>
 

@@ -34,7 +34,7 @@ public class SeleniumRepositorio<usuario> {
     private long time = 15;
 
 
-    public int login() throws InterruptedException, AWTException {
+    public int login(String CPF, String senha) throws InterruptedException, AWTException {
         String url = "https://pje1g.trf1.jus.br/";
         System.setProperty("webdriver.gecko.driver", "GeckoDriver.exe");
         ProfilesIni profile = new ProfilesIni();
@@ -57,12 +57,12 @@ public class SeleniumRepositorio<usuario> {
         this.time = 15000;
         wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         String a = "/html/body/div[4]/div[2]/div[2]/div/div/div[2]/form/div[1]/input";
-        String b = "41022777220";
+        String b = CPF;
         driver.manage().window().maximize();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(a)));
         driver.findElement(By.xpath(a)).sendKeys(b);
         String c = "/html/body/div[4]/div[2]/div[2]/div/div/div[2]/form/div[2]/input";
-        String d = "pjefederal01grau";
+        String d = senha;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(a)));
         driver.findElement(By.xpath(c)).sendKeys(d);
         Thread.sleep(2000);

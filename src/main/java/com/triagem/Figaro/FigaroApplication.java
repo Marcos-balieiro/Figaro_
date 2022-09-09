@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.awt.*;
 import java.sql.*;
 
-import repository.SeleniumRepositorio;
-
 @SpringBootApplication
 public class FigaroApplication {
 
@@ -19,7 +17,7 @@ public class FigaroApplication {
 		GeralController login = new GeralController();
 
 		int usuario = 0;
-		login.figaro();
+
 
 	}
 
