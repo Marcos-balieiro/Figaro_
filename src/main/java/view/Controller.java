@@ -44,7 +44,7 @@ public class Controller implements Initializable {
     @FXML
     public void nameChange(MouseEvent mouseEvent) {
             try {
-               CPF= cpf_digitado.getText();
+                CPF= cpf_digitado.getText();
                senha =  senha_login.getText();
                 GeralController login = new GeralController();
                 login.figaro(CPF,senha);
