@@ -11,6 +11,8 @@ public class DAOEntidade extends ConexaoSQLite {
 
     public boolean salvarEntidadeDAO(Entidade entidade) {
         conectar();
+
+
         String sql = "INSERT INTO Entidade(" +
                 "nome, " +
                 "sigla, " +

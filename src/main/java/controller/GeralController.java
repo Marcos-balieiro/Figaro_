@@ -11,10 +11,10 @@ import java.util.List;
 public class GeralController {
     private SeleniumRepositorio alerquina = new SeleniumRepositorio();
     private BancoController coringa = new BancoController();
-    public String figaro(String CPF, String senha) throws InterruptedException, AWTException {
+    public String figaro(String CPF, String senha, String entity) throws InterruptedException, AWTException {
        alerquina.login(CPF,senha);
        String janelapadrao = alerquina.automatização();
-       Entidade entidade = coringa.dadosEntidade();
+       Entidade entidade = coringa.dadosEntidade(entity);
        String classes =  entidade.getId_classe_judicial();
        String nome= entidade.getNome();
        int test= 0;

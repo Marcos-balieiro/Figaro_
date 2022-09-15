@@ -11,6 +11,7 @@ public class DAOAssunto extends ConexaoSQLite {
 
     public boolean salvarAssunto (Assunto assunto) {
         conectar();
+
         String sql = "INSERT INTO Assunto(" +
                 "nome)" +
                 "VALUES (?)";

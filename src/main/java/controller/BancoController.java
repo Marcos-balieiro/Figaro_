@@ -4,6 +4,7 @@ import Banco.ConexaoSQLite;
 import modelo.Assunto;
 import modelo.Classe_Judicial;
 import modelo.Entidade;
+import modelo.Usuario;
 import repository.SeleniumRepositorio;
 
 import java.sql.PreparedStatement;
@@ -18,11 +19,11 @@ public class BancoController {
     ControllerEntidade controllerEntidade;
     private SeleniumRepositorio repository = new SeleniumRepositorio();
 
-    public Entidade dadosEntidade() {
+    public Entidade dadosEntidade(String entity) {
         Entidade entidade = new Entidade();
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         conexaoSQLite.conectar();
-        String sql = "SELECT * FROM Entidade where nome ="+"'"+"FUNDAÇÃO NACIONAL DO ÍNDIO"+"'";
+        String sql = "SELECT * FROM Entidade where nome ="+"'"+entity+"'"+";";
         PreparedStatement statement = conexaoSQLite.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
         try {
             ResultSet resultSet = statement.executeQuery() ;
@@ -99,17 +100,36 @@ public class BancoController {
         conexaoSQLite.desconectar();
         return lista;
     }
-    public ResultSet listaentidade(){
+    public ResultSet listaentidade() {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         conexaoSQLite.conectar();
-        String sql= "SELECT * FROM Entidade";
-        try{
+        String sql = "SELECT * FROM Entidade";
+        try {
             PreparedStatement statement = conexaoSQLite.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
             return statement.executeQuery();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
-        }
+
     }
+    public Usuario dadosusuario() {
+        Usuario usuario = new Usuario();
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        conexaoSQLite.conectar();
+        String sql = "SELECT * FROM Usuario where id=1";
+        PreparedStatement statement = conexaoSQLite.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        try {
+            ResultSet resultSet = statement.executeQuery();
+            usuario.setCPF(resultSet.getString("cpf"));
+            usuario.setSENHA(resultSet.getString("senha"));
+
+        }
+        catch (Exception e){
+
+        }
+        conexaoSQLite.desconectar();
+        return usuario;
+    }
+}
 

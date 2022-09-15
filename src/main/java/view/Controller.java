@@ -5,14 +5,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import controller.BancoController;
 import controller.GeralController;
+import javafx.scene.control.CheckBox;
+import DAO.DAOUsuario;
+import modelo.Usuario;
 
 import java.net.URL;
 import java.sql.ResultSet;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
@@ -24,7 +26,8 @@ public class Controller implements Initializable {
     @FXML
     private ComboBox<String> cmbox;
 
-
+    @FXML
+    private CheckBox CREDEN;
     @FXML
     private TextField cpf_digitado;
 
@@ -42,30 +45,35 @@ public class Controller implements Initializable {
     private BancoController batman = new BancoController();
 
     @FXML
-    public void nameChange(MouseEvent mouseEvent) {
-            try {
-                CPF= cpf_digitado.getText();
-               senha =  senha_login.getText();
+    public String nameChange() throws SQLException {
+        if(CREDEN.isSelected()){
+            CPF=cpf_digitado.getText();
+            senha= senha_login.getText();
+            Usuario usu= new Usuario();
+            usu.setCPF(CPF);
+            usu.setSENHA(senha);
+            DAOUsuario user= new DAOUsuario();
+            user.salvarUsuario(usu);
+        }
+        try {
+               String Entity = cmbox.getSelectionModel().getSelectedItem();
                 GeralController login = new GeralController();
-                login.figaro(CPF,senha);
+                login.figaro(CPF,senha,Entity);
             } catch (Exception e) {
                 System.out.println(e);
             }
 
-        }
+        return null;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-           /* cpf_digitado.textProperty().addListener(
-                    (observable, oldValue, newValue) -> {
-                        try {
-                            if (!newValue.equals("")) parseInt(newValue);
-                        } catch (Exception e) {
-                            cpf_digitado.setText(oldValue);
-                        }
-                    }
-            );
-*/        Vector<Integer> idcargo= new Vector<Integer>();
+
+        Usuario USUARIO = batman.dadosusuario();
+            cpf_digitado.setText(USUARIO.getCPF());
+            senha_login.setText(USUARIO.getSENHA());
+
+        Vector<Integer> idcargo= new Vector<Integer>();
        try{
            ResultSet rs = batman.listaentidade();
            while(rs.next()) {
@@ -76,5 +84,8 @@ public class Controller implements Initializable {
            System.out.println("odeio");
        }
         }
+    public void CREDENCI(javafx.event.ActionEvent event) {
+
     }
+}
 
