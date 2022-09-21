@@ -2,7 +2,6 @@ package DAO;
 
 
 import Banco.ConexaoSQLite;
-import modelo.Entidade;
 import modelo.Usuario;
 
 import java.sql.PreparedStatement;
