@@ -123,7 +123,7 @@ public class Controller implements Initializable {
             } catch (AWTException e) {
                 throw new RuntimeException(e);
             }
-
+            throw  new Error("morra moraa");
         }
         }
 

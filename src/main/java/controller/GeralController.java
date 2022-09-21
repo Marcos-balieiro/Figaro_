@@ -80,7 +80,7 @@ public class GeralController {
 
     public void figarotodos(String CPF, String senha, Vector<String> entity) throws InterruptedException, AWTException {
         alerquina.login(CPF, senha);
-        for (int j = 0; j < entity.size(); j++) {
+        for (int j = 50; j < entity.size(); j++) {
             String janelapadrao = alerquina.automatização();
             String teste = String.valueOf(entity.get(j));
             Entidade entidade = coringa.dadosEntidade(teste);
@@ -143,5 +143,6 @@ public class GeralController {
                 }
             }
         }
+        alerquina.driver.close();
     }
 }
