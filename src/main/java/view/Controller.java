@@ -15,6 +15,7 @@ import modelo.Usuario;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,6 +92,11 @@ public class Controller implements Initializable {
         } catch (Exception e) {
             System.out.println("odeio");
         }
+
+        File file = new File("C:\\Utility\\Downloads\\"+"Petição inicial.pdf");
+        File file2 = new File("C:\\Utility\\Downloads\\"+ "1245788.pdf");
+
+        file.renameTo(file2);
     }
 
     public void CREDENCI(javafx.event.ActionEvent event) {
