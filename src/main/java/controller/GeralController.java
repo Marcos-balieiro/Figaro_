@@ -6,6 +6,9 @@ import repository.SeleniumRepositorio;
 import DAO.DAOprocessos;
 import modelo.Processo;
 import java.awt.*;
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
 
@@ -54,7 +57,7 @@ public class GeralController {
 
                 }
             }
-            if (nome == "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE") {
+            if (nome.equals("DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE")) {
                 String vazio = "";
                 alerquina.entradadados(vazio, nome, test);
                 Vector processoex = alerquina.exceções2(janelapadrao);
@@ -63,6 +66,7 @@ public class GeralController {
                     processo1.setProcessos(String.valueOf(processoex.get(contador)));
                     processo1.setNomeEntidade(nome);
                     proc.salvarprocessos(processo1);
+
                 }
             }
             String assuntos = entidade.getId_assunto();
@@ -90,8 +94,10 @@ public class GeralController {
                         for (int contador = 0; contador < processo.size(); contador++) {
                             Processo processo1 = new Processo();
                             processo1.setProcessos(String.valueOf(processo.get(contador)));
+
                             processo1.setNomeEntidade(nome);
                             proc.salvarprocessos(processo1);
+
                         }
                     }
 
@@ -103,7 +109,7 @@ public class GeralController {
 
     public void figarotodos(String CPF, String senha, Vector<String> entity) throws InterruptedException, AWTException {
         alerquina.login(CPF, senha);
-        for (int j = 50; j < entity.size(); j++) {
+        for (int j = 0; j < entity.size(); j++) {
             String janelapadrao = alerquina.automatização();
             String teste = String.valueOf(entity.get(j));
             Entidade entidade = coringa.dadosEntidade(teste);
@@ -154,7 +160,7 @@ public class GeralController {
                         processo1.setNomeEntidade(nome);
                         proc.salvarprocessos(processo1);
                     }
-                }
+                } else {
                     String assuntos = entidade.getId_assunto();
                     if (assuntos != null) {
                         List<String> id_assuntos = new ArrayList<>(Arrays.asList(assuntos.split(",")));
@@ -175,7 +181,7 @@ public class GeralController {
                                     processo1.setNomeEntidade(nome);
                                     proc.salvarprocessos(processo1);
                                 }
-                            } else {
+                            }
                                 String xamblu = "";
                                 Vector processo = alerquina.pesquisa(janelapadrao, xamblu);
                                 for (int contador = 0; contador < processo.size(); contador++) {
@@ -187,8 +193,8 @@ public class GeralController {
 
 
                             }
-
                         }
+
                     }
                 }
 
@@ -196,4 +202,3 @@ public class GeralController {
         alerquina.driver.close();
         }
     }
-
