@@ -18,10 +18,10 @@ public class DAOprocessos extends ConexaoSQLite {
         conectar();
         try {
             String sql = "INSERT INTO processos("
-                            + "Numeroproc, "
-                            +  "nome_entidade)"
-                            +  "data_encontrada)"
-                            + " VALUES (?,?)";
+                    + "Numeroproc, "
+                    +  "nome_entidade, "
+                    +  "data_encontrada)"
+                    + " VALUES (?,?,?)";
             PreparedStatement preparedStatement = criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
             try {
                 preparedStatement.setString(1,processo.getProcessos());
@@ -34,7 +34,7 @@ public class DAOprocessos extends ConexaoSQLite {
                 throw new RuntimeException(e);
             }
 
-    } catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
         return true;

@@ -95,7 +95,8 @@ public class SeleniumRepositorio<usuario> {
         String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
         String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String hojeformatado = hoje.format(formatter);
+        LocalDateTime ontem = hoje.minusDays(2);
+        String hojeformatado = ontem.format(formatter);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
         driver.findElement(By.id(iddatasexta)).sendKeys(data());
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
@@ -216,7 +217,7 @@ public class SeleniumRepositorio<usuario> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return sexta.format(formatter);
         } else {
-            LocalDateTime ontem = hoje.minusDays(1);
+            LocalDateTime ontem = hoje.minusDays(2);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return ontem.format(formatter);
 
@@ -342,8 +343,51 @@ public class SeleniumRepositorio<usuario> {
             System.out.println(isPresent);
 
             if (isPresent) {
-                String[] JURIDICAS = new String[5];
+                String[] JURIDICAS = new String[4];
                 JURIDICAS[0]= "LTDA";JURIDICAS[1]= "EIRELI";JURIDICAS[2]= "S A";JURIDICAS[3]= "S/A";
+                String verifica = driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[6]")).getText().toUpperCase();
+                for(int xablau = 0; xablau<4; xablau++) {
+                    if (verifica.contains(JURIDICAS[xablau])) {
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]/a")));
+                        processos.add(driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]/a")).getText());
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]")));
+                        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]")));
+                        driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]")).click();
+                        Thread.sleep(1500);
+                        System.setProperty("java.awt.headless", "false");
+                        Robot robot = new Robot();
+                        robot.keyPress(KeyEvent.VK_ENTER);
+                        robot.keyPress(KeyEvent.VK_ENTER);
+                        Thread.sleep(2000);
+                        janeladownload(janelapadrao);
+                        salvararquivo(processos, nome);
+                        driver.switchTo().window(janelapadrao);
+                    }
+                }
+            } else {
+                driver.get(urlpesquisa);
+
+            }
+
+        }
+        return processos;
+    }
+    public Vector<String> pesquisaMunicipio(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        String displayNone = "";
+        System.out.println("Display none? " + displayNone);
+        while (!displayNone.equals("display: none;")) {
+            displayNone = driver.findElement(By.id("_viewRoot:status.start")).getAttribute("style");
+        }
+        WebElement TabelaTref = driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody"));
+        List<WebElement> listaMovimentacao = new ArrayList<>(TabelaTref.findElements(By.cssSelector("tr")));
+        Vector<String> processos = new Vector<String>();
+        for (int j = listaMovimentacao.size(); j > 0; j--) {
+            Boolean isPresent = driver.findElements(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]")).size() > 0;
+            System.out.println(isPresent);
+
+            if (isPresent) {
+                String[] JURIDICAS = new String[5];
+                JURIDICAS[0]= "MUNICIPIO";JURIDICAS[1]= "ESTADO";JURIDICAS[2]= "SINDICATO";JURIDICAS[3]= "ASSOCIAÇÃO";JURIDICAS[4]= "FEDERAÇÃO";
                 String verifica = driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[6]")).getText().toUpperCase();
                 for(int xablau = 0; xablau<4; xablau++) {
                     if (verifica.contains(JURIDICAS[xablau])) {

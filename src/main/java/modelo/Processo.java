@@ -1,12 +1,15 @@
+
 package modelo;
 
 public class Processo {
 
 
-//poderias mudar este atributo para numproc
+    //poderias mudar este atributo para numproc
     private String processos;
     private String nomeEntidade;
+
     private String dataEncontrada;
+
 
     public String getProcessos() {
         return processos;
@@ -23,6 +26,7 @@ public class Processo {
     public void setNomeEntidade(String nomeEntidade) {
         this.nomeEntidade = nomeEntidade;
     }
+
     public String getDataEncontrada() {
         return dataEncontrada;
     }
@@ -30,7 +34,5 @@ public class Processo {
     public void setDataEncontrada(String dataEncontrada) {
         this.dataEncontrada = dataEncontrada;
     }
-
-
 
 }
