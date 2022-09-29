@@ -93,10 +93,6 @@ public class Controller implements Initializable {
             System.out.println("odeio");
         }
 
-        File file = new File("C:\\Utility\\Downloads\\"+"Petição inicial.pdf");
-        File file2 = new File("C:\\Utility\\Downloads\\"+ "1245788.pdf");
-
-        file.renameTo(file2);
     }
 
     public void CREDENCI(javafx.event.ActionEvent event) {
@@ -121,6 +117,8 @@ public class Controller implements Initializable {
                     idcargo.add(rs.getString(2));
 
                 }
+                CPF = cpf_digitado.getText();
+                senha = senha_login.getText();
                 login.figarotodos(CPF, senha, idcargo);
             } catch (SQLException e) {
                 throw new RuntimeException(e);

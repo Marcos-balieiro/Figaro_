@@ -16,6 +16,12 @@ public class GeralController {
     private SeleniumRepositorio alerquina = new SeleniumRepositorio();
     private BancoController coringa = new BancoController();
     private DAOprocessos proc = new DAOprocessos();
+    public String data(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime hoje = LocalDateTime.now();
+        String dataAtual = hoje.format(formatter);
+        return dataAtual;
+    }
 
     public String figaro(String CPF, String senha, String entity) throws InterruptedException, AWTException {
         alerquina.login(CPF, senha);
@@ -29,12 +35,12 @@ public class GeralController {
                 "AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA", "AGÊNCIA NACIONAL DO PETROLEO GAS NATURAL E BIOCOMBUSTIVEIS", "AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL", "AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES", "AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS", "SUPERINTENDÊNCIA DE SEGUROS PRIVADOS", "AGÊNCIA NACIONAL DO CINEMA", "AGÊNCIA NACIONAL DE ÁGUAS", "DEPARTAMENTO NACIONAL DE OBRAS CONTRA AS SECAS", "SUPERINTENDÊNCIA NACIONAL DE PREVIDÊNCIA COMPLEMENTAR", "COMISSÃO DE VALORES MOBILIÁRIOS", "AGÊNCIA NACIONAL DE SAUDE SUPLEMENTAR", "COMISSÃO NACIONAL DE ENERGIA NUCLEAR", "AGÊNCIA ESPACIAL BRASILEIRA", "AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES", "AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA"));
         if (exceões.contains(entidade.getNome())) {
             alerquina.entradadados(x, nome, test);
-            Vector processo = alerquina.pesquisaExceçoes(janelapadrao);
+            Vector processo = alerquina.pesquisaExceçoes(janelapadrao,nome);
             for (int contador = 0; contador < processo.size(); contador++) {
                 Processo processo1 = new Processo();
                 processo1.setProcessos(String.valueOf(processo.get(contador)));
                 processo1.setNomeEntidade(nome);
-
+                processo1.setDataEncontrada(data());
                 proc.salvarprocessos(processo1);
             }
 
@@ -53,6 +59,7 @@ public class GeralController {
                     Processo processo1 = new Processo();
                     processo1.setProcessos(String.valueOf(processo.get(contador)));
                     processo1.setNomeEntidade(nome);
+                    processo1.setDataEncontrada(data());
                     proc.salvarprocessos(processo1);
 
                 }
@@ -60,11 +67,12 @@ public class GeralController {
             if (nome.equals("DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE")) {
                 String vazio = "";
                 alerquina.entradadados(vazio, nome, test);
-                Vector processoex = alerquina.exceções2(janelapadrao);
+                Vector processoex = alerquina.exceções2(janelapadrao, nome);
                 for (int contador = 0; contador < processoex.size(); contador++) {
                     Processo processo1 = new Processo();
                     processo1.setProcessos(String.valueOf(processoex.get(contador)));
                     processo1.setNomeEntidade(nome);
+                    processo1.setDataEncontrada(data());
                     proc.salvarprocessos(processo1);
 
                 }
@@ -87,6 +95,7 @@ public class GeralController {
                             Processo processo1 = new Processo();
                             processo1.setProcessos(String.valueOf(processo.get(contador)));
                             processo1.setNomeEntidade(nome);
+                            processo1.setDataEncontrada(data());
                             proc.salvarprocessos(processo1);
                         }
                     } else {
@@ -96,6 +105,7 @@ public class GeralController {
                             processo1.setProcessos(String.valueOf(processo.get(contador)));
 
                             processo1.setNomeEntidade(nome);
+                            processo1.setDataEncontrada(data());
                             proc.salvarprocessos(processo1);
 
                         }
@@ -104,6 +114,7 @@ public class GeralController {
                 }
             }
         }
+        alerquina.driver.close();
         return null;
     }
 
@@ -121,12 +132,12 @@ public class GeralController {
                     "AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA", "AGÊNCIA NACIONAL DO PETROLEO GAS NATURAL E BIOCOMBUSTIVEIS", "AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL", "AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES", "AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS", "SUPERINTENDÊNCIA DE SEGUROS PRIVADOS", "AGÊNCIA NACIONAL DO CINEMA", "AGÊNCIA NACIONAL DE ÁGUAS", "DEPARTAMENTO NACIONAL DE OBRAS CONTRA AS SECAS", "SUPERINTENDÊNCIA NACIONAL DE PREVIDÊNCIA COMPLEMENTAR", "COMISSÃO DE VALORES MOBILIÁRIOS", "AGÊNCIA NACIONAL DE SAUDE SUPLEMENTAR", "COMISSÃO NACIONAL DE ENERGIA NUCLEAR", "AGÊNCIA ESPACIAL BRASILEIRA", "AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES", "AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA"));
             if (exceões.contains(entidade.getNome())) {
                 alerquina.entradadados(x, nome, test);
-                Vector processo = alerquina.pesquisaExceçoes(janelapadrao);
+                Vector processo = alerquina.pesquisaExceçoes(janelapadrao,nome);
                 for (int contador = 0; contador < processo.size(); contador++) {
                     Processo processo1 = new Processo();
                     processo1.setProcessos(String.valueOf(processo.get(contador)));
                     processo1.setNomeEntidade(nome);
-
+                    processo1.setDataEncontrada(data());
                     proc.salvarprocessos(processo1);
                 }
                 System.out.println(entidade.getNome());
@@ -146,6 +157,7 @@ public class GeralController {
                         Processo processo1 = new Processo();
                         processo1.setProcessos(String.valueOf(processo.get(contador)));
                         processo1.setNomeEntidade(nome);
+                        processo1.setDataEncontrada(data());
                         proc.salvarprocessos(processo1);
                     }
 
@@ -153,11 +165,12 @@ public class GeralController {
                 if (nome == "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE") {
                     String vazio = "";
                     alerquina.entradadados(vazio, nome, test);
-                    Vector processoex = alerquina.exceções2(janelapadrao);
+                    Vector processoex = alerquina.exceções2(janelapadrao,nome);
                     for (int contador = 0; contador < processoex.size(); contador++) {
                         Processo processo1 = new Processo();
                         processo1.setProcessos(String.valueOf(processoex.get(contador)));
                         processo1.setNomeEntidade(nome);
+                        processo1.setDataEncontrada(data());
                         proc.salvarprocessos(processo1);
                     }
                 } else {
@@ -179,6 +192,7 @@ public class GeralController {
                                     Processo processo1 = new Processo();
                                     processo1.setProcessos(String.valueOf(processo.get(contador)));
                                     processo1.setNomeEntidade(nome);
+                                    processo1.setDataEncontrada(data());
                                     proc.salvarprocessos(processo1);
                                 }
                             }
@@ -188,6 +202,7 @@ public class GeralController {
                                     Processo processo1 = new Processo();
                                     processo1.setProcessos(String.valueOf(processo.get(contador)));
                                     processo1.setNomeEntidade(nome);
+                                    processo1.setDataEncontrada(data());
                                     proc.salvarprocessos(processo1);
                                 }
 

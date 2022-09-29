@@ -20,11 +20,13 @@ public class DAOprocessos extends ConexaoSQLite {
             String sql = "INSERT INTO processos("
                             + "Numeroproc, "
                             +  "nome_entidade)"
+                            +  "data_encontrada)"
                             + " VALUES (?,?)";
             PreparedStatement preparedStatement = criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
             try {
                 preparedStatement.setString(1,processo.getProcessos());
                 preparedStatement.setString(2,processo.getNomeEntidade());
+                preparedStatement.setString(3,processo.getDataEncontrada());
                 preparedStatement.executeUpdate();
 
 

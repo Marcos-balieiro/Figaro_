@@ -151,7 +151,7 @@ public class SeleniumRepositorio<usuario> {
                 robot.keyPress(KeyEvent.VK_ENTER);
                 Thread.sleep(2000);
                 janeladownload(janelapadrao);
-                salvararquivo(processos);
+                salvararquivo(processos,nome);
 
                 driver.switchTo().window(janelapadrao);
 
@@ -164,7 +164,7 @@ public class SeleniumRepositorio<usuario> {
         return processos;
     }
 
-    public Vector pesquisaExceçoes(String janelapadrao) throws InterruptedException, AWTException {
+    public Vector pesquisaExceçoes(String janelapadrao, String nome) throws InterruptedException, AWTException {
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -197,7 +197,7 @@ public class SeleniumRepositorio<usuario> {
                     robot.keyPress(KeyEvent.VK_ENTER);
                     Thread.sleep(2000);
                     janeladownload(janelapadrao);
-                    salvararquivo(processos);
+                    salvararquivo(processos,nome);
                     driver.switchTo().window(janelapadrao);
 
                 }
@@ -232,7 +232,7 @@ public class SeleniumRepositorio<usuario> {
                 driver.switchTo().window(handle);
 
                 String spam = "detalheDocumento:primeiroDocumento";
-
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.id(spam)));
                 driver.findElement(By.id(spam)).click();
 
                 Thread.sleep(500);
@@ -287,7 +287,7 @@ public class SeleniumRepositorio<usuario> {
 
     }
 
-    public Vector exceções2(String janelapadrao) throws InterruptedException, AWTException {
+    public Vector exceções2(String janelapadrao, String nome) throws InterruptedException, AWTException {
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -320,7 +320,7 @@ public class SeleniumRepositorio<usuario> {
                         robot.keyPress(KeyEvent.VK_ENTER);
                         Thread.sleep(2000);
                         janeladownload(janelapadrao);
-                        salvararquivo(processos);
+                        salvararquivo(processos,nome);
                         driver.switchTo().window(janelapadrao);
                     }
                 }
@@ -359,7 +359,7 @@ public class SeleniumRepositorio<usuario> {
                         robot.keyPress(KeyEvent.VK_ENTER);
                         Thread.sleep(2000);
                         janeladownload(janelapadrao);
-                        salvararquivo(processos);
+                        salvararquivo(processos, nome);
                         driver.switchTo().window(janelapadrao);
                     }
                 }
@@ -371,12 +371,12 @@ public class SeleniumRepositorio<usuario> {
         }
         return processos;
     }
-    public void salvararquivo(Vector<String> processos){
+    public void salvararquivo(Vector<String> processos, String nome){
         File arquivoOriginal = new File("C:\\Utility\\Downloads\\Petição inicial.pdf");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd,MM");
         LocalDateTime hoje = LocalDateTime.now();
         String hojeformatado = hoje.format(formatter);
-        File novoDiretorio = new File("C:\\Utility\\Downloads\\" + hojeformatado);
+        File novoDiretorio = new File("C:\\Utility\\Downloads\\" + hojeformatado+"\\"+nome);
         novoDiretorio.mkdirs();
         File arquivoNovo = new File(novoDiretorio+"\\"+processos.lastElement()+".pdf");
         if(arquivoNovo.exists())
