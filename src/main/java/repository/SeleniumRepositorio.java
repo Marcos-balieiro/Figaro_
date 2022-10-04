@@ -95,8 +95,7 @@ public class SeleniumRepositorio<usuario> {
         String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
         String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDateTime ontem = hoje.minusDays(2);
-        String hojeformatado = ontem.format(formatter);
+        String hojeformatado = hoje.format(formatter);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
         driver.findElement(By.id(iddatasexta)).sendKeys(data());
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
@@ -217,7 +216,7 @@ public class SeleniumRepositorio<usuario> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return sexta.format(formatter);
         } else {
-            LocalDateTime ontem = hoje.minusDays(2);
+            LocalDateTime ontem = hoje.minusDays(1);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return ontem.format(formatter);
 
@@ -417,7 +416,7 @@ public class SeleniumRepositorio<usuario> {
     }
     public void salvararquivo(Vector<String> processos, String nome){
         File arquivoOriginal = new File("C:\\Utility\\Downloads\\Petição inicial.pdf");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd,MM");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
         LocalDateTime hoje = LocalDateTime.now();
         String hojeformatado = hoje.format(formatter);
         File novoDiretorio = new File("C:\\Utility\\Downloads\\" + hojeformatado+"\\"+nome);
