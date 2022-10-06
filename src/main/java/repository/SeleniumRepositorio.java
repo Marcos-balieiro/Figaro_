@@ -40,7 +40,7 @@ public class SeleniumRepositorio<usuario> {
         System.setProperty("webdriver.gecko.driver", "GeckoDriver.exe");
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile fxProfile = profile.getProfile("default");
-        fxProfile.setPreference("browser.download.dir", "C:\\Utility\\Downloads");
+        fxProfile.setPreference("browser.download.dir", "C:\\Figaro\\Downloads");
         fxProfile.setPreference("browser.download.folderList", 2);
         fxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         fxProfile.setPreference("browser.download.manager.showWhenStarting", false);
@@ -95,6 +95,7 @@ public class SeleniumRepositorio<usuario> {
         String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
         String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         String hojeformatado = hoje.format(formatter);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
         driver.findElement(By.id(iddatasexta)).sendKeys(data());
@@ -175,6 +176,9 @@ public class SeleniumRepositorio<usuario> {
         Vector<String> processos = new Vector<String>();
         for (int j = listaMovimentacao.size(); j > 0; j--) {
             Boolean isPresent = driver.findElements(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]")).size() > 0;
+
+
+
             if (isPresent) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[5]")));
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[5]")));
@@ -414,21 +418,24 @@ public class SeleniumRepositorio<usuario> {
         }
         return processos;
     }
-    public void salvararquivo(Vector<String> processos, String nome){
-        File arquivoOriginal = new File("C:\\Utility\\Downloads\\Petição inicial.pdf");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
-        LocalDateTime hoje = LocalDateTime.now();
-        String hojeformatado = hoje.format(formatter);
-        File novoDiretorio = new File("C:\\Utility\\Downloads\\" + hojeformatado+"\\"+nome);
-        novoDiretorio.mkdirs();
-        File arquivoNovo = new File(novoDiretorio+"\\"+processos.lastElement()+".pdf");
-        if(arquivoNovo.exists())
-        {
-            arquivoNovo.delete();
+    public void salvararquivo(Vector<String> processos, String nome) {
+        File diretorio = new File("C:\\Figaro\\Downloads");
+        File[] arquivos = diretorio.listFiles();
+        for (File arquivo : arquivos) {
 
-            arquivoOriginal.renameTo(arquivoNovo);
-        }else {
-            arquivoOriginal.renameTo(arquivoNovo);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
+            LocalDateTime hoje = LocalDateTime.now();
+            String hojeformatado = hoje.format(formatter);
+            File novoDiretorio = new File("C:\\Figaro\\Processos\\" + hojeformatado + "\\" + nome);
+            novoDiretorio.mkdirs();
+            File arquivoNovo = new File(novoDiretorio + "\\" + processos.lastElement() + ".pdf");
+            if (arquivoNovo.exists()) {
+                arquivoNovo.delete();
+
+                arquivo.renameTo(arquivoNovo);
+            } else {
+                arquivo.renameTo(arquivoNovo);
+            }
         }
     }
 }

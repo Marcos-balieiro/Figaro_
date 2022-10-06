@@ -32,5 +32,6 @@
       </Pane>
       <ComboBox fx:id="cmbox" layoutX="36.0" layoutY="281.0" prefHeight="20.0" prefWidth="333.0" />
       <Button fx:id="TODOS" layoutX="484.0" layoutY="214.0" mnemonicParsing="false" onAction="#LOPPING" onMouseClicked="#nameChange" prefHeight="80.0" prefWidth="130.0" text="TODAS ENTIDADES" textAlignment="RIGHT" />
+      <Button fx:id="arquivos" layoutX="496.0" layoutY="14.0" mnemonicParsing="false" onAction="#abrirpasta" prefHeight="25.0" prefWidth="130.0" text="Pasta Download" />
    </children>
 </AnchorPane>

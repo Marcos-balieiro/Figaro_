@@ -16,6 +16,7 @@ import modelo.Usuario;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,6 +33,9 @@ public class Controller implements Initializable {
 
     @FXML
     private Button TODOS;
+
+    @FXML
+    private Button arquivos;
 
     @FXML
     private CheckBox CREDEN;
@@ -129,5 +133,9 @@ public class Controller implements Initializable {
             }
             throw  new Error("morra moraa");
         }
-        }
+
+    public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
+        Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));
+    }
+}
 
