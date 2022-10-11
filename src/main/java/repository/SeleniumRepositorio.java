@@ -187,7 +187,7 @@ public class SeleniumRepositorio<usuario> {
                         "EXECUÇÃO FISCAL", "EMBARGOS À EXECUÇÃO FISCAL", "CARTA PRECATÓRIA", "CUMPRIMENTO DE SENTENÇA", "PROCEDIMENTO DE JUIZADO ESPECIAL"
                 ));
                 if (exceões.contains(verifica)) {
-                    j--;
+                    System.out.println("triste");
                 } else {
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]/a")));
                     processos.add(driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[1]/a")).getText());
