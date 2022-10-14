@@ -1,15 +1,13 @@
 package view;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import controller.BancoController;
 import controller.GeralController;
-import javafx.scene.control.CheckBox;
 import DAO.DAOUsuario;
 import modelo.Usuario;
 
@@ -20,6 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
@@ -50,9 +50,17 @@ public class Controller implements Initializable {
 
     @FXML
     private Text texto1;
+
+    @FXML
+    private DatePicker data_inicio;
+
+    @FXML
+    private DatePicker data_fim;
+
     String CPF;
     String senha;
-
+    LocalDate dataInicio;
+    LocalDate dataFim;
     private BancoController batman = new BancoController();
 
     @FXML
@@ -113,26 +121,38 @@ public class Controller implements Initializable {
             user.salvarUsuario(usu);
         }
         GeralController login = new GeralController();
-            Vector<String> idcargo = new Vector<String>();
-            try {
-                ResultSet rs = batman.listaentidade();
-                while (rs.next()) {
+        Vector<String> idcargo = new Vector<String>();
+        try {
+            ResultSet rs = batman.listaentidade();
+            while (rs.next()) {
 
-                    idcargo.add(rs.getString(2));
+                idcargo.add(rs.getString(2));
 
-                }
-                CPF = cpf_digitado.getText();
-                senha = senha_login.getText();
-                login.figarotodos(CPF, senha, idcargo);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (AWTException e) {
-                throw new RuntimeException(e);
             }
-            throw  new Error("morra moraa");
+            CPF = cpf_digitado.getText();
+            senha = senha_login.getText();
+            login.figarotodos(CPF, senha, idcargo);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
         }
+        throw  new Error("morra moraa");
+    }
+
+    DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    public void getDataInicial(javafx.event.ActionEvent actionEvent) {
+        dataInicio = data_inicio.getValue();
+        System.out.println(dataInicio.format(formatadorDeData));
+    }
+
+    public void getDataFinal(javafx.event.ActionEvent actionEvent) {
+        dataFim = data_fim.getValue();
+        System.out.println(dataFim.format(formatadorDeData));
+    }
 
     public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
         Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));
