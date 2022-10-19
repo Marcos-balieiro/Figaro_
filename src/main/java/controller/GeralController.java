@@ -6,7 +6,6 @@ import repository.SeleniumRepositorio;
 import DAO.DAOprocessos;
 import modelo.Processo;
 import java.awt.*;
-import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -24,7 +23,7 @@ public class GeralController {
         return dataAtual;
     }
 
-    public String figaro(String CPF, String senha, String entity) throws InterruptedException, AWTException {
+    public String figaro(String CPF, String senha, String entity, String data_fin, String dataInicio) throws InterruptedException, AWTException {
         alerquina.login(CPF, senha);
         String janelapadrao = alerquina.automatização();
         Entidade entidade = coringa.dadosEntidade(entity);
@@ -35,7 +34,7 @@ public class GeralController {
         Set<String> exceões = new HashSet<String>(Arrays.asList(
                 "AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA", "AGÊNCIA NACIONAL DO PETROLEO GAS NATURAL E BIOCOMBUSTIVEIS", "AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL", "AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES", "AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS", "SUPERINTENDÊNCIA DE SEGUROS PRIVADOS", "AGÊNCIA NACIONAL DO CINEMA", "AGÊNCIA NACIONAL DE ÁGUAS", "DEPARTAMENTO NACIONAL DE OBRAS CONTRA AS SECAS", "SUPERINTENDÊNCIA NACIONAL DE PREVIDÊNCIA COMPLEMENTAR", "COMISSÃO DE VALORES MOBILIÁRIOS", "AGÊNCIA NACIONAL DE SAUDE SUPLEMENTAR", "COMISSÃO NACIONAL DE ENERGIA NUCLEAR", "AGÊNCIA ESPACIAL BRASILEIRA", "AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES", "AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA"));
         if (exceões.contains(entidade.getNome())) {
-            alerquina.entradadados(x, nome, test);
+            alerquina.entradadados(x, nome, test, data_fin,dataInicio);
             Vector processo = alerquina.pesquisaExceçoes(janelapadrao, nome);
             for (int contador = 0; contador < processo.size(); contador++) {
                 Processo processo1 = new Processo();
@@ -53,7 +52,7 @@ public class GeralController {
 
                 Classe_Judicial classe = coringa.dadosjudicial(pesquisaClasse);
                 String judicialclass = classe.getNome();
-                alerquina.entradadados(judicialclass, nome, test);
+                alerquina.entradadados(judicialclass, nome, test, data_fin, dataInicio);
 
                 Vector processo = alerquina.pesquisa(janelapadrao, entidade.getNome());
                 for (int contador = 0; contador < processo.size(); contador++) {
@@ -67,7 +66,7 @@ public class GeralController {
             }
             if (nome.equals("DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE")) {
                 String vazio = "";
-                alerquina.entradadados(vazio, nome, test);
+                alerquina.entradadados(vazio, nome, test, data_fin, dataInicio);
                 Vector processoex = alerquina.exceções2(janelapadrao, nome);
                 for (int contador = 0; contador < processoex.size(); contador++) {
                     Processo processo1 = new Processo();
@@ -82,7 +81,7 @@ public class GeralController {
                     "SUPERINTENDÊNCIA DA ZONA FRANCA DE MANAUS", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO CENTRO-OESTE", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DA AMAZÔNIA", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO NORDESTE", "INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA", "FUNDAÇÃO NACIONAL DE SAÚDE", "FUNDO NACIONAL DESENVOLVIMENTO DA EDUCACAO", "AGÊNCIA NACIONAL DE MINERAÇÃO"));
             if (agenmuni.contains(nome)) {
                 String vazio = "";
-                alerquina.entradadados(vazio, nome, test);
+                alerquina.entradadados(vazio, nome, test, data_fin, dataInicio);
                 Vector processoex = alerquina.pesquisaMunicipio(janelapadrao, nome);
                 for (int contador = 0; contador < processoex.size(); contador++) {
                     Processo processo1 = new Processo();
@@ -101,7 +100,7 @@ public class GeralController {
                 String pesquisaassunto = (id_assuntos.get(i));
                 Assunto assunto = coringa.dadosassunto(pesquisaassunto);
                 String Subject = assunto.getNome();
-                alerquina.entradadados(Subject, nome, test);
+                alerquina.entradadados(Subject, nome, test, data_fin, dataInicio);
                 Set<String> opções = new HashSet<String>(Arrays.asList(
                         "INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVAVEIS", "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE"
                 ));
@@ -132,7 +131,7 @@ public class GeralController {
         alerquina.driver.close();
         return null;
     }
-    public void figarotodos(String CPF, String senha, Vector<String> entity) throws InterruptedException, AWTException {
+    public void figarotodos(String CPF, String senha, Vector<String> entity, String data_fin, String dataInicio) throws InterruptedException, AWTException {
         alerquina.login(CPF, senha);
         for (int j = 0; j < entity.size(); j++) {
             String janelapadrao = alerquina.automatização();
@@ -145,7 +144,7 @@ public class GeralController {
             Set<String> exceões = new HashSet<String>(Arrays.asList(
                     "AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA", "AGÊNCIA NACIONAL DO PETROLEO GAS NATURAL E BIOCOMBUSTIVEIS", "AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL", "AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES", "AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS", "SUPERINTENDÊNCIA DE SEGUROS PRIVADOS", "AGÊNCIA NACIONAL DO CINEMA", "AGÊNCIA NACIONAL DE ÁGUAS", "DEPARTAMENTO NACIONAL DE OBRAS CONTRA AS SECAS", "SUPERINTENDÊNCIA NACIONAL DE PREVIDÊNCIA COMPLEMENTAR", "COMISSÃO DE VALORES MOBILIÁRIOS", "AGÊNCIA NACIONAL DE SAUDE SUPLEMENTAR", "COMISSÃO NACIONAL DE ENERGIA NUCLEAR", "AGÊNCIA ESPACIAL BRASILEIRA", "AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES", "AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA"));
             if (exceões.contains(entidade.getNome())) {
-                alerquina.entradadados(x, nome, test);
+                alerquina.entradadados(x, nome, test, data_fin, dataInicio);
                 Vector processo = alerquina.pesquisaExceçoes(janelapadrao,nome);
                 for (int contador = 0; contador < processo.size(); contador++) {
                     Processo processo1 = new Processo();
@@ -164,7 +163,7 @@ public class GeralController {
 
                     Classe_Judicial classe = coringa.dadosjudicial(pesquisaClasse);
                     String judicialclass = classe.getNome();
-                    alerquina.entradadados(judicialclass, nome, test);
+                    alerquina.entradadados(judicialclass, nome, test, data_fin, dataInicio);
 
                     Vector processo = alerquina.pesquisa(janelapadrao, entidade.getNome());
                     for (int contador = 0; contador < processo.size(); contador++) {
@@ -180,7 +179,7 @@ public class GeralController {
                         "SUPERINTENDÊNCIA DA ZONA FRANCA DE MANAUS", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO CENTRO-OESTE", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DA AMAZÔNIA", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO NORDESTE", "INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA", "FUNDAÇÃO NACIONAL DE SAÚDE", "FUNDO NACIONAL DESENVOLVIMENTO DA EDUCACAO", "AGÊNCIA NACIONAL DE MINERAÇÃO"));
                 if (agenmuni.contains(nome)) {
                     String vazio = "";
-                    alerquina.entradadados(vazio, nome, test);
+                    alerquina.entradadados(vazio, nome, test, data_fin, dataInicio);
                     Vector processoex = alerquina.pesquisaMunicipio(janelapadrao, nome);
                     for (int contador = 0; contador < processoex.size(); contador++) {
                         Processo processo1 = new Processo();
@@ -192,7 +191,7 @@ public class GeralController {
                 }
                 if (nome == "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE") {
                     String vazio = "";
-                    alerquina.entradadados(vazio, nome, test);
+                    alerquina.entradadados(vazio, nome, test, data_fin, dataInicio);
                     Vector processoex = alerquina.exceções2(janelapadrao,nome);
                     for (int contador = 0; contador < processoex.size(); contador++) {
                         Processo processo1 = new Processo();
@@ -210,7 +209,7 @@ public class GeralController {
                             String pesquisaassunto = (id_assuntos.get(i));
                             Assunto assunto = coringa.dadosassunto(pesquisaassunto);
                             String Subject = assunto.getNome();
-                            alerquina.entradadados(Subject, nome, test);
+                            alerquina.entradadados(Subject, nome, test, data_fin, dataInicio);
                             Set<String> opções = new HashSet<String>(Arrays.asList(
                                     "INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVAVEIS", "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE"
                             ));

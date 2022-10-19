@@ -89,18 +89,30 @@ public class SeleniumRepositorio<usuario> {
     }
 
 
-    public void entradadados(String filtropesquisa, String nome, int test) {
+    public void entradadados(String filtropesquisa, String nome, int test, String data_fin, String dataInicio) {
         LocalDateTime hoje = LocalDateTime.now();
         driver.get(urlpesquisa);
-        String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
-        String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        if((dataInicio == null)) {
 
-        String hojeformatado = hoje.format(formatter);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
-        driver.findElement(By.id(iddatasexta)).sendKeys(data());
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
-        driver.findElement(By.id(iddatahoje)).sendKeys(hojeformatado);
+
+            String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
+            String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String hojeformatado = hoje.format(formatter);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
+            driver.findElement(By.id(iddatasexta)).sendKeys(data());
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
+            driver.findElement(By.id(iddatahoje)).sendKeys(hojeformatado);
+        }else{
+            String hoje1= (dataInicio);
+            String ontem =(data_fin);
+            String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
+            String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
+            driver.findElement(By.id(iddatasexta)).sendKeys(hoje1);
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
+            driver.findElement(By.id(iddatahoje)).sendKeys(ontem);
+        }
         String idnomeparte = "fPP:j_id150:nomeParte";
         String nomeparte = nome;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
@@ -184,7 +196,7 @@ public class SeleniumRepositorio<usuario> {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[5]")));
                 String verifica = driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]/td[5]")).getText().toUpperCase();
                 Set<String> exceões = new HashSet<String>(Arrays.asList(
-                        "EXECUÇÃO FISCAL", "EMBARGOS À EXECUÇÃO FISCAL", "CARTA PRECATÓRIA", "CUMPRIMENTO DE SENTENÇA", "PROCEDIMENTO DE JUIZADO ESPECIAL"
+                        "EXECUÇÃO FISCAL", "EMBARGOS À EXECUÇÃO FISCAL", "CARTA PRECATÓRIA", "CUMPRIMENTO DE SENTENÇA", "PROCEDIMENTO DE JUIZADO ESPECIAL","PROCEDIMENTO DO JUIZADO ESPECIAL CÍVEL"
                 ));
                 if (exceões.contains(verifica)) {
                     System.out.println("triste");

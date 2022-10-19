@@ -3,16 +3,12 @@ package view;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import controller.BancoController;
 import controller.GeralController;
 import DAO.DAOUsuario;
 import modelo.Usuario;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -23,20 +19,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
-import static java.lang.Integer.parseInt;
-
 public class Controller implements Initializable {
 
 
     @FXML
     private ComboBox<String> cmbox;
-
-    @FXML
-    private Button TODOS;
-
-    @FXML
-    private Button arquivos;
-
     @FXML
     private CheckBox CREDEN;
     @FXML
@@ -44,13 +31,6 @@ public class Controller implements Initializable {
 
     @FXML
     private PasswordField senha_login;
-
-    @FXML
-    private Text texto;
-
-    @FXML
-    private Text texto1;
-
     @FXML
     private DatePicker data_inicio;
 
@@ -59,12 +39,11 @@ public class Controller implements Initializable {
 
     String CPF;
     String senha;
-    LocalDate dataInicio;
-    LocalDate dataFim;
+    LocalDate dataInicio = null;
     private BancoController batman = new BancoController();
 
     @FXML
-    public String nameChange() throws SQLException {
+    public String nameChange() {
         if (CREDEN.isSelected()) {
             CPF = cpf_digitado.getText();
             senha = senha_login.getText();
@@ -79,7 +58,18 @@ public class Controller implements Initializable {
             senha = senha_login.getText();
             String Entity = cmbox.getSelectionModel().getSelectedItem();
             GeralController login = new GeralController();
-            login.figaro(CPF, senha, Entity);
+            if(data_inicio.getValue() == null){
+                String sasha= null;
+                String xuxa = null;
+                login.figaro(CPF, senha, Entity,sasha,xuxa);
+            }
+            dataInicio = data_inicio.getValue();
+            LocalDate data_fin = data_fim.getValue();
+            DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String xuxa= dataInicio.format(formatadorDeData);
+            String sasha= data_fin.format(formatadorDeData);
+
+            login.figaro(CPF, senha, Entity,sasha,xuxa);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -94,7 +84,7 @@ public class Controller implements Initializable {
         cpf_digitado.setText(USUARIO.getCPF());
         senha_login.setText(USUARIO.getSENHA());
 
-        Vector<Integer> idcargo = new Vector<Integer>();
+        Vector<Integer> idcargo = new Vector<>();
         try {
             ResultSet rs = batman.listaentidade();
             while (rs.next()) {
@@ -131,7 +121,17 @@ public class Controller implements Initializable {
             }
             CPF = cpf_digitado.getText();
             senha = senha_login.getText();
-            login.figarotodos(CPF, senha, idcargo);
+            if(data_inicio.getValue() == null){
+                String sasha= null;
+                String xuxa = null;
+                login.figarotodos(CPF, senha,idcargo,sasha,xuxa);
+            }
+            dataInicio = data_inicio.getValue();
+            LocalDate data_fin = data_fim.getValue();
+            DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String xuxa = dataInicio.format(formatadorDeData);
+            String sasha = data_fin.format(formatadorDeData);
+            login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
@@ -141,19 +141,6 @@ public class Controller implements Initializable {
         }
         throw  new Error("morra moraa");
     }
-
-    DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-    public void getDataInicial(javafx.event.ActionEvent actionEvent) {
-        dataInicio = data_inicio.getValue();
-        System.out.println(dataInicio.format(formatadorDeData));
-    }
-
-    public void getDataFinal(javafx.event.ActionEvent actionEvent) {
-        dataFim = data_fim.getValue();
-        System.out.println(dataFim.format(formatadorDeData));
-    }
-
     public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
         Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));
     }
