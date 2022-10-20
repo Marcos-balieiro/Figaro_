@@ -61,7 +61,7 @@ public class Controller implements Initializable {
             if(data_inicio.getValue() == null){
                 String sasha= null;
                 String xuxa = null;
-                login.figaro(CPF, senha, Entity,sasha,xuxa);
+                login.figaro(CPF, senha, Entity);
             }
             dataInicio = data_inicio.getValue();
             LocalDate data_fin = data_fim.getValue();
@@ -69,7 +69,7 @@ public class Controller implements Initializable {
             String xuxa= dataInicio.format(formatadorDeData);
             String sasha= data_fin.format(formatadorDeData);
 
-            login.figaro(CPF, senha, Entity,sasha,xuxa);
+            login.figaro(CPF, senha, Entity);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -124,14 +124,14 @@ public class Controller implements Initializable {
             if(data_inicio.getValue() == null){
                 String sasha= null;
                 String xuxa = null;
-                login.figarotodos(CPF, senha,idcargo,sasha,xuxa);
+                login.figarotodos(CPF, senha,idcargo);
             }
             dataInicio = data_inicio.getValue();
             LocalDate data_fin = data_fim.getValue();
             DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String xuxa = dataInicio.format(formatadorDeData);
             String sasha = data_fin.format(formatadorDeData);
-            login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+            login.figarotodos(CPF, senha, idcargo);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
