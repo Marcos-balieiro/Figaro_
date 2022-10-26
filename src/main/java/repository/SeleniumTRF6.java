@@ -22,7 +22,7 @@ import java.util.*;
 
 
 public class SeleniumTRF6<usuario> {
-    String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
+    String urlpesquisa = "https://pje1g.trf6.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
     public WebDriver driver;
     public int z = 1;
 
@@ -32,11 +32,11 @@ public class SeleniumTRF6<usuario> {
 
 
     public int login(String CPF, String senha) throws InterruptedException, AWTException {
-        String url = "https://pje1g.trf1.jus.br/";
+        String url = "https://pje1g.trf6.jus.br/";
         System.setProperty("webdriver.gecko.driver", "GeckoDriver.exe");
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile fxProfile = profile.getProfile("default");
-        fxProfile.setPreference("browser.download.dir", "C:\\Figaro\\Downloads");
+        fxProfile.setPreference("browser.download.dir", "C:\\Figaro\\trf6\\Downloads");
         fxProfile.setPreference("browser.download.folderList", 2);
         fxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         fxProfile.setPreference("browser.download.manager.showWhenStarting", false);
@@ -76,7 +76,7 @@ public class SeleniumTRF6<usuario> {
     }
 
     public String automatização() throws InterruptedException, AWTException {
-        String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
+        String urlpesquisa = "https://pje1g.trf6.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
         driver.navigate().to(urlpesquisa);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         String janelapadrao = driver.getWindowHandle();
@@ -109,7 +109,7 @@ public class SeleniumTRF6<usuario> {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
             driver.findElement(By.id(iddatahoje)).sendKeys(ontem);
         }
-        String idnomeparte = "fPP:j_id151:nomeParte";
+        String idnomeparte = "fPP:j_id150:nomeParte";
         String nomeparte = nome;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
         driver.findElement(By.id(idnomeparte)).sendKeys(nomeparte);
@@ -142,7 +142,7 @@ public class SeleniumTRF6<usuario> {
         WebElement TabelaTref = driver.findElement(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody"));
         List<WebElement> listaMovimentacao = new ArrayList<>(TabelaTref.findElements(By.cssSelector("tr")));
         Vector<String> processos = new Vector<String>();
-        for (int j = listaMovimentacao.size(); j > 0; j--) {
+        for (int j = listaMovimentacao.size(); j > 0; j--) { ///parei aqui dia 26/10
             Boolean isPresent = driver.findElements(By.xpath("/html/body/div[6]/div/div/div/div[2]/form/div[2]/div/table/tbody/tr[" + j + "]")).size() > 0;
             System.out.println(isPresent);
 
