@@ -25,7 +25,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class SeleniumRepositorio<usuario> {
+public class SeleniumService<usuario> {
     String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
     public WebDriver driver;
     public int z = 1;
@@ -125,8 +125,41 @@ public class SeleniumRepositorio<usuario> {
 
     }
 
+    public Vector<String> irnserirParmetros(String nome, String assunto, String classe, String grupo, String janelaPadrao) {
+        LocalDateTime hoje = LocalDateTime.now();
+        driver.get(urlpesquisa);
+        String iddatahoje = "fPP:dataAutuacaoDecoration:dataAutuacaoFimInputDate";
+        String iddatasexta = "fPP:dataAutuacaoDecoration:dataAutuacaoInicioInputDate";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Vector<String> filtroDeCasos(String janelaPadrao, String nome, String grupo) throws InterruptedException, AWTException {
+        String hojeformatado = hoje.format(formatter);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatasexta)));
+        driver.findElement(By.id(iddatasexta)).sendKeys(data());
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
+        driver.findElement(By.id(iddatahoje)).sendKeys(hojeformatado);
+        String idnomeparte = "fPP:j_id150:nomeParte";
+        String nomeparte = nome;
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
+        driver.findElement(By.id(idnomeparte)).sendKeys(nomeparte);
+        String polopassivo = "/html/body/div[6]/div/div/div/div[2]/form/div[1]/div/div/div[5]/div[2]/table/tbody/tr/td[2]/label";
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(polopassivo)));
+        driver.findElement(By.xpath(polopassivo)).click();
+
+
+
+            String idclasse_judicial = "fPP:j_id257:classeJudicial";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idclasse_judicial)));
+            driver.findElement(By.id(idclasse_judicial)).sendKeys(classe);
+
+            String assuntoid = "fPP:j_id248:assunto";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(assuntoid)));
+            driver.findElement(By.id(assuntoid)).sendKeys(assunto);
+
+        String pesquisar = "fPP:searchProcessos";
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(pesquisar)));
+        driver.findElement(By.id(pesquisar)).click();
+
+
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
