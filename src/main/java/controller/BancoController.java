@@ -5,7 +5,7 @@ import modelo.Assunto;
 import modelo.Classe_Judicial;
 import modelo.Entidade;
 import modelo.Usuario;
-import repository.SeleniumRepositorio;
+import repository.SeleniumTRF1;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.List;
 public class BancoController {
 
     ControllerEntidade controllerEntidade;
-    private SeleniumRepositorio repository = new SeleniumRepositorio();
+    private SeleniumTRF1 repository = new SeleniumTRF1();
 
     public Entidade dadosEntidade(String entity) {
         Entidade entidade = new Entidade();

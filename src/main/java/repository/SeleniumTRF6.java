@@ -1,9 +1,9 @@
 package repository;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
@@ -12,22 +12,16 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
-
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.sql.SQLOutput;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-
-
-import java.time.Duration;
-
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 
-public class SeleniumRepositorio<usuario> {
+public class SeleniumTRF6<usuario> {
     String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
     public WebDriver driver;
     public int z = 1;
