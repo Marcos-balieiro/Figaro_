@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #00a8a8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuscaController">
+   <children>
+      <Button layoutX="484.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#nameChange" prefHeight="80.0" prefWidth="130.0" text="COMEÇAR" />
+      <Pane prefHeight="190.0" prefWidth="354.0" style="-fx-background-color: #1d3557;">
+         <children>
+            <Text fx:id="texto1" layoutX="31.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SENHA">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="texto" layoutX="31.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="cpf_digitado" layoutX="31.0" layoutY="47.0" promptText="CPF/CNJP" />
+            <PasswordField fx:id="senha_login" layoutX="31.0" layoutY="115.0" promptText="senha" />
+         </children>
+      </Pane>
+      <ComboBox fx:id="cmbox" layoutX="36.0" layoutY="281.0" prefHeight="20.0" prefWidth="333.0" />
+   </children>
+</AnchorPane>
