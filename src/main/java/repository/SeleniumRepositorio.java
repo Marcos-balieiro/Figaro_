@@ -8,14 +8,12 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -115,7 +113,7 @@ public class SeleniumRepositorio<usuario> {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
             driver.findElement(By.id(iddatahoje)).sendKeys(ontem);
         }
-        String idnomeparte = "fPP:j_id151:nomeParte";
+        String idnomeparte = "fPP:j_id150:nomeParte";
         String nomeparte = nome;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
         driver.findElement(By.id(idnomeparte)).sendKeys(nomeparte);
@@ -123,12 +121,12 @@ public class SeleniumRepositorio<usuario> {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(polopassivo)));
         driver.findElement(By.xpath(polopassivo)).click();
         if (test == 0) {
-            String idclasse_judicial = "fPP:j_id258:classeJudicial";
+            String idclasse_judicial = "fPP:j_id257:classeJudicial";
             String classe_judicial = filtropesquisa;
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idclasse_judicial)));
             driver.findElement(By.id(idclasse_judicial)).sendKeys(classe_judicial);
         } else {
-            String assuntoid = "fPP:j_id249:assunto";
+            String assuntoid = "fPP:j_id248:assunto";
             String assunto = filtropesquisa;
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(assuntoid)));
             driver.findElement(By.id(assuntoid)).sendKeys(assunto);
@@ -246,91 +244,40 @@ public class SeleniumRepositorio<usuario> {
         Thread.sleep(1000);
         Set<String> janela = driver.getWindowHandles();
         for (String handle : janela) {
-            try {
-                if (!handle.equals(janelapadrao)) {
-                    driver.switchTo().window(handle);
+            if (!handle.equals(janelapadrao)) {
+                driver.switchTo().window(handle);
 
-                    String download12 = "/html/body/div[2]/div[1]/div/form[1]/span/ul[2]/li[6]/a";
-                    boolean certeza = driver.findElements(By.xpath(download12)).size() > 0;
-                    if (certeza) {
-                        driver.findElement(By.xpath(download12)).click();
-                    } else {
-                        download12 = "/html/body/div[2]/div[1]/div/form[1]/span/ul[2]/li[7]/a";
-                        driver.findElement(By.xpath(download12)).click();
-                    }
-                    Thread.sleep(500);
-                    String download = "navbar:cbTipoDocumento";
-                    wait.until(ExpectedConditions.elementToBeClickable(By.id(download)));
-                    Thread.sleep(1000);
-                    WebElement teste = driver.findElement(By.id(download));
-                    driver.findElement(By.id(download)).click();
-                    Select sel = new Select(teste);
-                    try {
-                        try {
-                            sel.selectByVisibleText("Inicial");
-                            String button = "navbar:downloadProcesso";
-                            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(button)));
-                            wait.until(ExpectedConditions.elementToBeClickable(By.id(button)));
-                            Thread.sleep(200);
-                            driver.findElement(By.id(button)).click();
-                            System.setProperty("java.awt.headless", "false");
-                            Robot robot = new Robot();
-                            robot.keyPress(KeyEvent.VK_ENTER);
-                            Thread.sleep(5000);
+                String spam = "detalheDocumento:primeiroDocumento";
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.id(spam)));
+                driver.findElement(By.id(spam)).click();
 
-                            driver.close();
-                        } catch (Exception e) {
-                            sel.selectByVisibleText("Petição inicial");
-                            String button = "navbar:downloadProcesso";
-                            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(button)));
-                            wait.until(ExpectedConditions.elementToBeClickable(By.id(button)));
-                            Thread.sleep(200);
-                            driver.findElement(By.id(button)).click();
-                            System.setProperty("java.awt.headless", "false");
-                            Robot robot = new Robot();
-                            robot.keyPress(KeyEvent.VK_ENTER);
-                            Thread.sleep(5000);
-                        }
-                    } catch (Exception ea) {
+                Thread.sleep(500);
+                String download = "detalheDocumento:download";
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.id(download)));
+                wait.until(ExpectedConditions.elementToBeClickable(By.id(download)));
+                Thread.sleep(1000);
+                driver.findElement(By.id(download)).click();
+                Thread.sleep(3000);
+                System.setProperty("java.awt.headless", "false");
+                Robot robot = new Robot();
+                robot.keyPress(KeyEvent.VK_A + z);
+                robot.keyPress(KeyEvent.VK_A + z);
+                z = z + 1;
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyPress(KeyEvent.VK_ENTER);
 
-                        //versao antiga de donwload{
-                        String spam = "detalheDocumento:primeiroDocumento";
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(spam)));
-                        driver.findElement(By.id(spam)).click();
+                Thread.sleep(2000);
 
-                        Thread.sleep(500);
-                        String downloadantig = "detalheDocumento:download";
-                        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(downloadantig)));
-                        wait.until(ExpectedConditions.elementToBeClickable(By.id(downloadantig)));
-                        Thread.sleep(1000);
-                        driver.findElement(By.id(download)).click();
-                        Thread.sleep(3000);
-                        System.setProperty("java.awt.headless", "false");
-                        Robot robot = new Robot();
-                        robot.keyPress(KeyEvent.VK_A + z);
-                        robot.keyPress(KeyEvent.VK_A + z);
-                        z = z + 1;
-                        robot.keyPress(KeyEvent.VK_ENTER);
-                        robot.keyPress(KeyEvent.VK_ENTER);
-
-                        Thread.sleep(2000);
-
-                        driver.close();
-                    }
-
-                }
-            }catch (Exception e){
-                System.out.println("n deu");
                 driver.close();
+
+
             }
         }
-
-
-            Set<String> janela1 = driver.getWindowHandles();
-            for (String handle1 : janela1) {
-                if (!handle1.equals(janelapadrao)) {
-                    try {
-                        driver.switchTo().window(handle1);
+        Set<String> janela1 = driver.getWindowHandles();
+        for (String handle1 : janela1) {
+            if (!handle1.equals(janelapadrao)) {
+                try {
+                    driver.switchTo().window(handle1);
                     /*String download1 = "download";
                     wait.until(ExpectedConditions.presenceOfElementLocated(By.id(download1)));
                     wait.until(ExpectedConditions.elementToBeClickable(By.id(download1)));
@@ -345,17 +292,16 @@ public class SeleniumRepositorio<usuario> {
 
                     Thread.sleep(2000);
                     */
-                        Thread.sleep(1000);
-                        driver.close();
+                    driver.close();
 
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                } catch (Exception e) {
+                    System.out.println(e);
                 }
             }
-
         }
 
+
+    }
 
     public Vector exceções2(String janelapadrao, String nome) throws InterruptedException, AWTException {
         String displayNone = "";

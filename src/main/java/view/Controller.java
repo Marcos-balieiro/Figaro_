@@ -1,6 +1,5 @@
 package view;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.fxml.Initializable;
@@ -20,12 +19,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
-public class MainController implements Initializable {
+public class Controller implements Initializable {
 
-    @FXML
-    private void trocaTela(ActionEvent e){
-        System.out.println("botao novo");
-    }
+
     @FXML
     private ComboBox<String> cmbox;
     @FXML

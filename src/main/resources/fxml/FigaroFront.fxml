@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #0078aa;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #0078aa;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
    <children>
       <Button layoutX="433.0" layoutY="289.0" mnemonicParsing="false" onMouseClicked="#nameChange" prefHeight="80.0" prefWidth="130.0" text="INICIO" />
       <Pane prefHeight="190.0" prefWidth="354.0" style="-fx-background-color: #0078aa;">
@@ -44,7 +44,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <DatePicker fx:id="data_inicio" layoutX="411.0" layoutY="77.0" promptText="ontem" />
-      <DatePicker fx:id="data_fim" layoutX="411.0" layoutY="149.0" promptText="hoje" />
+      <DatePicker fx:id="data_inicio" layoutX="411.0" layoutY="77.0" onAction="#getDataInicial" promptText="ontem" />
+      <DatePicker fx:id="data_fim" layoutX="411.0" layoutY="149.0" onAction="#getDataFinal" promptText="hoje" />
    </children>
 </AnchorPane>
