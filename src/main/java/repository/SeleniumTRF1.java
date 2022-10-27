@@ -15,7 +15,6 @@ import java.awt.*;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -27,7 +26,7 @@ import java.util.*;
 import java.util.List;
 
 
-public class SeleniumRepositorio<usuario> {
+public class SeleniumTRF1<usuario> {
     String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
     public WebDriver driver;
     public int z = 1;

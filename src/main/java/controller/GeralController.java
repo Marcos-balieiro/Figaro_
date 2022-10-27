@@ -2,7 +2,7 @@ package controller;
 import modelo.Assunto;
 import modelo.Classe_Judicial;
 import modelo.Entidade;
-import repository.SeleniumRepositorio;
+import repository.SeleniumTRF1;
 import DAO.DAOprocessos;
 import modelo.Processo;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.List;
 
 public class GeralController {
-    private SeleniumRepositorio alerquina = new SeleniumRepositorio();
+    private SeleniumTRF1 alerquina = new SeleniumTRF1();
     private BancoController coringa = new BancoController();
     private DAOprocessos proc = new DAOprocessos();
 
