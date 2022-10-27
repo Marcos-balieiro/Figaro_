@@ -102,6 +102,7 @@ public class MainController implements Initializable {
         Vector<Integer> idcargo = new Vector<>();
         try {
             ResultSet rs = batman.listaentidade();
+
             cmbox.getItems().add("TODAS AS ENTIDADES");
             while (rs.next()) {
                 idcargo.addElement(rs.getInt(1));
