@@ -35,8 +35,12 @@ public class SeleniumTRF1<usuario> {
 
     private long time = 15;
 
-
+SeleniumTRF6 alerquina = new SeleniumTRF6();
     public int login(String CPF, String senha) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.login(CPF,senha);
+        }
         String url = "https://pje1g.trf1.jus.br/";
         System.setProperty("webdriver.gecko.driver", "GeckoDriver.exe");
         ProfilesIni profile = new ProfilesIni();
@@ -81,6 +85,10 @@ public class SeleniumTRF1<usuario> {
     }
 
     public String automatização() throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.automatização();
+        }
         String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
         driver.navigate().to(urlpesquisa);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
@@ -91,6 +99,10 @@ public class SeleniumTRF1<usuario> {
 
 
     public void entradadados(String filtropesquisa, String nome, int test, String data_fin, String dataInicio) {
+        if(trf6=="trf6")
+        {
+            alerquina.entradadados(filtropesquisa, nome, test, data_fin, dataInicio);
+        }
         LocalDateTime hoje = LocalDateTime.now();
         driver.get(urlpesquisa);
         if((dataInicio == null)) {
@@ -139,6 +151,10 @@ public class SeleniumTRF1<usuario> {
     }
 
     public Vector<String> pesquisa(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.pesquisa(janelapadrao, nome);
+        }
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -179,6 +195,10 @@ public class SeleniumTRF1<usuario> {
     }
 
     public Vector pesquisaExceçoes(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.pesquisaExceçoes(janelapadrao, nome);
+        }
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -357,6 +377,10 @@ public class SeleniumTRF1<usuario> {
 
 
     public Vector exceções2(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.exceções2(janelapadrao, nome);
+        }
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -398,6 +422,10 @@ public class SeleniumTRF1<usuario> {
         return processos;
     }
     public Vector<String> pesquisa2(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.pesquisa2(janelapadrao, nome);
+        }
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
@@ -441,6 +469,10 @@ public class SeleniumTRF1<usuario> {
         return processos;
     }
     public Vector<String> pesquisaMunicipio(String janelapadrao, String nome) throws InterruptedException, AWTException {
+        if(trf6=="trf6")
+        {
+            alerquina.pesquisaMunicipio(janelapadrao, nome);
+        }
         String displayNone = "";
         System.out.println("Display none? " + displayNone);
         while (!displayNone.equals("display: none;")) {
