@@ -12,7 +12,7 @@ public class main extends Application {
     private static Scene mainScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FigaroFront.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainFront.fxml"));
 
         primaryStage.setTitle("figaro");
         primaryStage.setScene(new Scene(root));

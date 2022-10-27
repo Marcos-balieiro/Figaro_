@@ -61,10 +61,16 @@ public class MainController implements Initializable {
             CPF = cpf_digitado.getText();
             senha = senha_login.getText();
             String Entity = cmbox.getSelectionModel().getSelectedItem();
+
             GeralController login = new GeralController();
             if(data_inicio.getValue() == null){
                 String sasha= null;
                 String xuxa = null;
+                if(Entity== "TODAS AS ENTIDADES")
+                {
+                    Vector idcargo = LOPPING();
+                    login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+                }
                 login.figaro(CPF, senha, Entity,sasha,xuxa);
             }
             dataInicio = data_inicio.getValue();
@@ -72,6 +78,11 @@ public class MainController implements Initializable {
             DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String xuxa= dataInicio.format(formatadorDeData);
             String sasha= data_fin.format(formatadorDeData);
+            if(Entity== "TODAS AS ENTIDADES")
+            {
+                Vector idcargo = LOPPING();
+                login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+            }
 
             login.figaro(CPF, senha, Entity,sasha,xuxa);
         } catch (Exception e) {
@@ -91,6 +102,7 @@ public class MainController implements Initializable {
         Vector<Integer> idcargo = new Vector<>();
         try {
             ResultSet rs = batman.listaentidade();
+            cmbox.getItems().add("TODAS AS ENTIDADES");
             while (rs.next()) {
                 idcargo.addElement(rs.getInt(1));
                 cmbox.getItems().add(rs.getString(2));
@@ -104,48 +116,21 @@ public class MainController implements Initializable {
     public void CREDENCI(javafx.event.ActionEvent event) {
 
     }
-    public void LOPPING(javafx.event.ActionEvent event) {
-        if (CREDEN.isSelected()) {
-            CPF = cpf_digitado.getText();
-            senha = senha_login.getText();
-            Usuario usu = new Usuario();
-            usu.setCPF(CPF);
-            usu.setSENHA(senha);
-            DAOUsuario user = new DAOUsuario();
-            user.salvarUsuario(usu);
-        }
-        GeralController login = new GeralController();
+    public Vector<String> LOPPING() {
         Vector<String> idcargo = new Vector<String>();
         try {
             ResultSet rs = batman.listaentidade();
             while (rs.next()) {
 
                 idcargo.add(rs.getString(2));
-
             }
-            CPF = cpf_digitado.getText();
-            senha = senha_login.getText();
-            if(data_inicio.getValue() == null){
-                String sasha= null;
-                String xuxa = null;
-                login.figarotodos(CPF, senha,idcargo,sasha,xuxa);
-            }
-            dataInicio = data_inicio.getValue();
-            LocalDate data_fin = data_fim.getValue();
-            DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String xuxa = dataInicio.format(formatadorDeData);
-            String sasha = data_fin.format(formatadorDeData);
-            login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+            return idcargo;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (AWTException e) {
-            throw new RuntimeException(e);
+            System.out.println("me fudi");;
         }
-        throw  new Error("morra moraa");
+        return idcargo;
     }
-    public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
+        public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
         Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));
     }
 }
