@@ -1,0 +1,13 @@
+O usuario tem que, ao clicar em um botao, abrir a nova janela em que ele ira colocar especificações na busca do robo, sendo elas:
+
+nome da parte;
+polo passivo ou ativo;
+Assunto;
+Classe Judicial;
+Data;
+ou usando o numero do processo (colocando 6 caixas e preenchendo a quarta e quinta com 4 e 01);
+
+
+
+E mais um botão para ir para uma nova tela em que o usuario poderá escolher as entidades (INSS, DNIT...) onde quer
+buscar os processos.
