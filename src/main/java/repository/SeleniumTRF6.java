@@ -109,7 +109,7 @@ public class SeleniumTRF6<usuario> {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
             driver.findElement(By.id(iddatahoje)).sendKeys(ontem);
         }
-        String idnomeparte = "fPP:j_id150:nomeParte";
+        String idnomeparte = "fPP:j_id151:nomeParte";
         String nomeparte = nome;
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
         driver.findElement(By.id(idnomeparte)).sendKeys(nomeparte);

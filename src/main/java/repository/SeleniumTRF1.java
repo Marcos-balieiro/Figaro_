@@ -36,6 +36,7 @@ public class SeleniumTRF1<usuario> {
     private long time = 15;
 
     SeleniumTRF6 alerquina = new SeleniumTRF6();
+     String trf6 = "TRF6";
 
     public int login(String CPF, String senha) throws InterruptedException, AWTException {
         if (trf6 == "trf6") {
