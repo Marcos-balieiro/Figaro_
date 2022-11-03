@@ -19,7 +19,7 @@ public class BancoController {
     ControllerEntidade controllerEntidade;
     private SeleniumTRF1 repository = new SeleniumTRF1();
 
-    public Entidade dadosEntidade(String entity) {
+    public Entidade dadosEntidade(String entity, String TRF) {
         Entidade entidade = new Entidade();
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
         conexaoSQLite.conectar();

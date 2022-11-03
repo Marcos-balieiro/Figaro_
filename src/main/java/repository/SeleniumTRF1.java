@@ -36,10 +36,10 @@ public class SeleniumTRF1<usuario> {
     private long time = 15;
 
     SeleniumTRF6 alerquina = new SeleniumTRF6();
-     String trf6 = "TRF6";
+     ;
 
-    public int login(String CPF, String senha) throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public int login(String CPF, String senha, String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             alerquina.login(CPF, senha);
         } else {
             String url = "https://pje1g.trf1.jus.br/";
@@ -81,14 +81,14 @@ public class SeleniumTRF1<usuario> {
             Thread.sleep(2000);
 
 
-            automatização();
+            automatização(TRF);
             return 1;
         }
         return 0;
     }
 
-    public String automatização() throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public String automatização(String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             String janelapadrao = alerquina.automatização();
             return janelapadrao;
         } else {
@@ -100,8 +100,8 @@ public class SeleniumTRF1<usuario> {
             return janelapadrao;
         }
     }
-    public void entradadados(String filtropesquisa, String nome, int test, String data_fin, String dataInicio) {
-        if (trf6 == "trf6") {
+    public void entradadados(String filtropesquisa, String nome, int test, String data_fin, String dataInicio, String TRF) {
+        if (TRF == "TRF6") {
             alerquina.entradadados(filtropesquisa, nome, test, data_fin, dataInicio);
         } else {
             LocalDateTime hoje = LocalDateTime.now();
@@ -127,20 +127,20 @@ public class SeleniumTRF1<usuario> {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.id(iddatahoje)));
                 driver.findElement(By.id(iddatahoje)).sendKeys(ontem);
             }
-            String idnomeparte = "fPP:j_id151:nomeParte";
+            String idnomeparte = "fPP:j_id150:nomeParte";
             String nomeparte = nome;
             wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idnomeparte)));
             driver.findElement(By.id(idnomeparte)).sendKeys(nomeparte);
-            String polopassivo = "/html/body/div[6]/div/div/div/div[2]/form/div[1]/div/div/div[5]/div[2]/table/tbody/tr/td[2]/label";
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(polopassivo)));
-            driver.findElement(By.xpath(polopassivo)).click();
+            String polopassivo = "fPP:radioDecoration:radio:1";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id(polopassivo)));
+            driver.findElement(By.id(polopassivo)).click();
             if (test == 0) {
-                String idclasse_judicial = "fPP:j_id258:classeJudicial";
+                String idclasse_judicial = "fPP:j_id257:classeJudicial";
                 String classe_judicial = filtropesquisa;
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.id(idclasse_judicial)));
                 driver.findElement(By.id(idclasse_judicial)).sendKeys(classe_judicial);
             } else {
-                String assuntoid = "fPP:j_id249:assunto";
+                String assuntoid = "fPP:j_id248:assunto";
                 String assunto = filtropesquisa;
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.id(assuntoid)));
                 driver.findElement(By.id(assuntoid)).sendKeys(assunto);
@@ -152,8 +152,8 @@ public class SeleniumTRF1<usuario> {
         }
     }
 
-    public Vector<String> pesquisa(String janelapadrao, String nome) throws InterruptedException, AWTException {
-        if(trf6=="trf6")
+    public Vector<String> pesquisa(String janelapadrao, String nome, String TRF) throws InterruptedException, AWTException {
+        if(TRF == "TRF6")
         {
             Vector<String> processos = alerquina.pesquisa(janelapadrao, nome);
             return processos;
@@ -199,8 +199,8 @@ public class SeleniumTRF1<usuario> {
 
     }
 
-    public Vector pesquisaExceçoes(String janelapadrao, String nome) throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public Vector pesquisaExceçoes(String janelapadrao, String nome, String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             Vector<String> processos = alerquina.pesquisaExceçoes(janelapadrao, nome);
             return processos;
         } else {
@@ -380,8 +380,8 @@ public class SeleniumTRF1<usuario> {
         }
 
 
-    public Vector exceções2(String janelapadrao, String nome) throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public Vector exceções2(String janelapadrao, String nome, String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             Vector<String> processos = alerquina.exceções2(janelapadrao, nome);
             return processos;
         } else {
@@ -429,8 +429,8 @@ public class SeleniumTRF1<usuario> {
             return processos;
         }
     }
-    public Vector<String> pesquisa2(String janelapadrao, String nome) throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public Vector<String> pesquisa2(String janelapadrao, String nome, String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             Vector<String> processos = alerquina.pesquisa2(janelapadrao, nome);
             return processos;
         } else {
@@ -480,8 +480,8 @@ public class SeleniumTRF1<usuario> {
             return processos;
         }
     }
-    public Vector<String> pesquisaMunicipio(String janelapadrao, String nome) throws InterruptedException, AWTException {
-        if (trf6 == "trf6") {
+    public Vector<String> pesquisaMunicipio(String janelapadrao, String nome, String TRF) throws InterruptedException, AWTException {
+        if (TRF == "TRF6") {
             Vector<String> processos = alerquina.pesquisaMunicipio(janelapadrao, nome);
             return processos;
         } else {

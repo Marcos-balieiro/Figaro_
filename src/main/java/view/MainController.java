@@ -29,6 +29,8 @@ public class MainController implements Initializable {
     @FXML
     private ComboBox<String> cmbox;
     @FXML
+    private ComboBox<String> cmboxTRFs;
+    @FXML
     private CheckBox CREDEN;
     @FXML
     private TextField cpf_digitado;
@@ -61,6 +63,7 @@ public class MainController implements Initializable {
             CPF = cpf_digitado.getText();
             senha = senha_login.getText();
             String Entity = cmbox.getSelectionModel().getSelectedItem();
+            String TRF= cmboxTRFs.getSelectionModel().getSelectedItem();
 
             GeralController login = new GeralController();
             if(data_inicio.getValue() == null){
@@ -69,9 +72,9 @@ public class MainController implements Initializable {
                 if(Entity== "TODAS AS ENTIDADES")
                 {
                     Vector idcargo = LOPPING();
-                    login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+                    login.figarotodos(CPF, senha, idcargo,sasha,xuxa,TRF);
                 }
-                login.figaro(CPF, senha, Entity,sasha,xuxa);
+                login.figaro(CPF, senha, Entity,sasha,xuxa,TRF);
             }
             dataInicio = data_inicio.getValue();
             LocalDate data_fin = data_fim.getValue();
@@ -81,10 +84,10 @@ public class MainController implements Initializable {
             if(Entity== "TODAS AS ENTIDADES")
             {
                 Vector idcargo = LOPPING();
-                login.figarotodos(CPF, senha, idcargo,sasha,xuxa);
+                login.figarotodos(CPF, senha, idcargo,sasha,xuxa, TRF);
             }
 
-            login.figaro(CPF, senha, Entity,sasha,xuxa);
+            login.figaro(CPF, senha, Entity,sasha,xuxa, TRF);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -98,6 +101,8 @@ public class MainController implements Initializable {
         Usuario USUARIO = batman.dadosusuario();
         cpf_digitado.setText(USUARIO.getCPF());
         senha_login.setText(USUARIO.getSENHA());
+        cmboxTRFs.getItems().add("TRF1");
+        cmboxTRFs.getItems().add("TRF6");
 
         Vector<Integer> idcargo = new Vector<>();
         try {
