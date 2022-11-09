@@ -32,14 +32,15 @@ public class DAOUsuario extends ConexaoSQLite {
                 return true;
 
             } else {
-                String sql = "INSERT INTO Usuario(" +
+                String sql = "INSERT INTO Usuario(" +"id,"+
                         "cpf, " +
                         "senha) " +
-                        "VALUES (?,?)";
+                        "VALUES (?,?,?)";
                 PreparedStatement preparedStatement = criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
                 try {
-                    preparedStatement.setString(1, usuario.getCPF());
-                    preparedStatement.setString(2, usuario.getSENHA());
+                    preparedStatement.setString(1, "1");
+                    preparedStatement.setString(2, usuario.getCPF());
+                    preparedStatement.setString(3, usuario.getSENHA());
                     preparedStatement.executeUpdate();
 
                 } catch (SQLException e) {

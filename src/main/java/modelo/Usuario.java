@@ -1,7 +1,10 @@
 package modelo;
 
 public class Usuario {
+
     private String CPF;
+
+
     private String SENHA;
 
     public String getCPF() {

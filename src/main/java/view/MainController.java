@@ -56,6 +56,7 @@ public class MainController implements Initializable {
             Usuario usu = new Usuario();
             usu.setCPF(CPF);
             usu.setSENHA(senha);
+
             DAOUsuario user = new DAOUsuario();
             user.salvarUsuario(usu);
         }
