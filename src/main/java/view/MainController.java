@@ -21,10 +21,11 @@ import java.util.ResourceBundle;
 import java.util.Vector;
 
 public class MainController implements Initializable {
-
     @FXML
-    private void trocaTela(ActionEvent e){
-        System.out.println("botao novo");
+    protected void trocaTela(ActionEvent e) {
+        System.out.println("Botão novo");
+
+        main.changeScreen("buscaPersonalizada");
     }
     @FXML
     private ComboBox<String> cmbox;

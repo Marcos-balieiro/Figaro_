@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="731.0" prefWidth="989.0" style="-fx-background-color: #0078aa;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuscaController">
+   <children>
+      <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="AGÊNCIA BRASILEIRA DE PROMOÇÃO INTERNACIONAL DO TURISMO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE AVIAÇÃO CIVIL">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="64.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE MINERAÇÃO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="91.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="119.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="147.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE ÁGUAS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="174.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DO PETROLEO GAS NATURAL E BIOCOMBUSTIVEIS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="198.0" mnemonicParsing="false" text="CAIXA DE FINANCIAMENTO IMOBILIÁRIO DA AERONÁUTICA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="249.0" mnemonicParsing="false" text="COMISSÃO NACIONAL DE ENERGIA NUCLEAR">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="274.0" mnemonicParsing="false" text="COORDENAÇÃO DE APERFEIÇOAMENTO DE PESSOAL DE NÍVEL SUPERIOR">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="301.0" mnemonicParsing="false" text="DEPARTAMENTO NACIONAL DE OBRAS CONTRA AS SECAS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="329.0" mnemonicParsing="false" text="FUNDAÇÃO JORGE DUPRAT FIGUEIREDO, DE SEGURANÇA E MEDICINA DO TRABALHO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="357.0" mnemonicParsing="false" text="FUNDAÇÃO NACIONAL DO ÍNDIO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="225.0" mnemonicParsing="false" text="COLÉGIO DOM PEDRO II">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="382.0" mnemonicParsing="false" text="FUNDO NACIONAL DESENVOLVIMENTO DA EDUCACAO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="407.0" mnemonicParsing="false" text="INSTITUTO BRASILEIRO DE MUSEUS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="434.0" mnemonicParsing="false" text="INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="462.0" mnemonicParsing="false" text="INSTITUTO DE PESQUISAS ENERGÉTICAS E NUCLEARES">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="487.0" mnemonicParsing="false" text="INSTITUTO FEDERAL ">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="512.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DE COLONIZAÇÃO E REFORMA AGRÁRIA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="540.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DE METEOROLOGIA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="565.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMAÇÃO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="592.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA DA ZONA FRANCA DE MANAUS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="620.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA DO DESENVOLVIMENTO DA AMAZÔNIA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="645.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO NORDESTE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="14.0" layoutY="670.0" mnemonicParsing="false" text="UNIVERSIDADE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="10.0" mnemonicParsing="false" text="AGÊNCIA ESPACIAL BRASILEIRA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="35.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="60.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE SAUDE SUPLEMENTAR">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="87.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="115.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DE VIGILÂNCIA SANITÁRIA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="143.0" mnemonicParsing="false" text="AGÊNCIA NACIONAL DO CINEMA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="170.0" mnemonicParsing="false" text="CAIXA DE CONSTRUÇÕES DE CASAS PARA O PESSOAL DA MARINHA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="194.0" mnemonicParsing="false" text="CEFET">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="245.0" mnemonicParsing="false" text="CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="270.0" mnemonicParsing="false" text="DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="297.0" mnemonicParsing="false" text="FACULDADE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="325.0" mnemonicParsing="false" text="FUNDAÇÃO NACIONAL DE SAÚDE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="353.0" mnemonicParsing="false" text="FUNDAÇÃO OSWALDO CRUZ">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="221.0" mnemonicParsing="false" text="COMISSÃO DE VALORES MOBILIÁRIOS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="378.0" mnemonicParsing="false" text="INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="403.0" mnemonicParsing="false" text="INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVAVEIS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="430.0" mnemonicParsing="false" text="INSTITUTO DE PESQUISA ECONÔMICA APLICADA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="458.0" mnemonicParsing="false" text="INSTITUTO DO PATRIMÔNIO HISTÓRICO E ARTÍSTICO NACIONAL">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="483.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DA PROPRIEDADE INDUSTRIAL">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="508.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DE ESTUDOS E PESQUISAS ANISIO TEIXEIRA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="536.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DE METROLOGIA, QUALIDADE E TECNOLOGIA">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="561.0" mnemonicParsing="false" text="INSTITUTO NACIONAL DO SEGURO SOCIAL">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="588.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA DE SEGUROS PRIVADOS">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="616.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO CENTRO-OESTE">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="500.0" layoutY="641.0" mnemonicParsing="false" text="SUPERINTENDÊNCIA NACIONAL DE PREVIDÊNCIA COMPLEMENTAR">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+      <Button fx:id="confirma" layoutX="626.0" layoutY="688.0" mnemonicParsing="false" onAction="#confirmaBuscaPersonalizada" text="Confirmar" />
+      <Button fx:id="cancelaBuscaAvancada" layoutX="797.0" layoutY="688.0" mnemonicParsing="false" onAction="#trocaTela" text="Cancelar" />
+      <CheckBox fx:id="todasEntidades" layoutX="500.0" layoutY="670.0" mnemonicParsing="false" text="Todos" textFill="RED">
+         <font>
+            <Font size="11.5" />
+         </font>
+      </CheckBox>
+   </children>
+</AnchorPane>

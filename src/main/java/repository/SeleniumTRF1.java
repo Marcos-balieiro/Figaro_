@@ -299,8 +299,7 @@ public class SeleniumTRF1<usuario> {
                             System.setProperty("java.awt.headless", "false");
                             Robot robot = new Robot();
                             robot.keyPress(KeyEvent.VK_ENTER);
-                            Thread.sleep(5000);
-
+                            Thread.sleep(8000);
                             driver.close();
                         } catch (Exception e) {
                             sel.selectByVisibleText("Petição inicial");
@@ -312,7 +311,7 @@ public class SeleniumTRF1<usuario> {
                             System.setProperty("java.awt.headless", "false");
                             Robot robot = new Robot();
                             robot.keyPress(KeyEvent.VK_ENTER);
-                            Thread.sleep(5000);
+                            Thread.sleep(8000);
                         }
                     } catch (Exception ea) {
 

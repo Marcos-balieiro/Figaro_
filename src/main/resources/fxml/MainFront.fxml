@@ -30,7 +30,6 @@
             <CheckBox fx:id="CREDEN" layoutX="31.0" layoutY="159.0" mnemonicParsing="false" onAction="#CREDENCI" text="Salvar Credencias" textFill="#0a0a0a" />
          </children>
       </Pane>
-      <ComboBox fx:id="cmbox" layoutX="29.0" layoutY="334.0" prefHeight="20.0" prefWidth="333.0" />
       <Button fx:id="TRF1" layoutX="432.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#nameChange" prefHeight="80.0" prefWidth="150.0" text="Inicio" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="arquivos" layoutX="438.0" layoutY="387.0" mnemonicParsing="false" onAction="#abrirpasta" prefHeight="25.0" prefWidth="137.0" text="Pasta Download" />
       <Text layoutX="29.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Procurar processos de:">
@@ -46,5 +45,6 @@
       <DatePicker fx:id="data_inicio" layoutX="29.0" layoutY="217.0" promptText="ontem" />
       <DatePicker fx:id="data_fim" layoutX="29.0" layoutY="274.0" promptText="hoje" />
       <ComboBox fx:id="cmboxTRFs" layoutX="432.0" layoutY="63.0" prefWidth="150.0" promptText="Escolher TRF" />
+      <Button fx:id="BuscaPersonalizada" layoutX="29.0" layoutY="387.0" mnemonicParsing="false" onAction="#trocaTela" prefHeight="25.0" prefWidth="149.0" text="Entidades" />
    </children>
 </AnchorPane>
