@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import controller.BancoController;
 import controller.GeralController;
 import DAO.DAOUsuario;
+import javafx.scene.input.MouseEvent;
 import modelo.Usuario;
 import java.awt.*;
 import java.io.File;
@@ -25,7 +26,7 @@ public class MainController implements Initializable {
     protected void trocaTela(ActionEvent e) {
         System.out.println("Botão novo");
 
-        main.changeScreen("buscaPersonalizada");
+        main.changeScreen("teste");
     }
     @FXML
     private ComboBox<String> cmbox;
@@ -65,6 +66,7 @@ public class MainController implements Initializable {
             CPF = cpf_digitado.getText();
             senha = senha_login.getText();
             String Entity = cmbox.getSelectionModel().getSelectedItem();
+
             String TRF= cmboxTRFs.getSelectionModel().getSelectedItem();
 
             GeralController login = new GeralController();
@@ -141,5 +143,6 @@ public class MainController implements Initializable {
         public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
         Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));
     }
+
 }
 

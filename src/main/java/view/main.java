@@ -13,6 +13,7 @@ public class main extends Application {
 
     private static Scene mainScene;
     private static Scene buscaPersonalizadaScene;
+    private static Scene teste;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,6 +26,9 @@ public class main extends Application {
 
         Parent fxmlBuscaPersonalizada = FXMLLoader.load(getClass().getResource("/fxml/BuscaPersonalizada.fxml"));
         buscaPersonalizadaScene = new Scene(fxmlBuscaPersonalizada);
+
+        Parent fxmlteste = FXMLLoader.load(getClass().getResource("/fxml/teste.fxml"));
+        teste = new Scene(fxmlteste);
 
 
 
@@ -40,6 +44,9 @@ public class main extends Application {
                 break;
             case "buscaPersonalizada":
                 stage.setScene(buscaPersonalizadaScene);
+            case "teste":
+                stage.setScene(teste);
+
 
         }
     }
