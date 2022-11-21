@@ -31,6 +31,9 @@ public class controlleteste implements Initializable {
         private TextArea escolhas;
         List<String> list = new ArrayList<>();
         Vector<String> entidades= new Vector<>();
+
+        private String vava;
+        private String vavaAnterior;
         @FXML
         public void initialize(URL location, ResourceBundle resources) {
 
@@ -52,10 +55,11 @@ public class controlleteste implements Initializable {
         public void add(javafx.event.ActionEvent actionEvent) {
                 try {
                         entidades.addElement(cmboxze.getSelectionModel().getSelectedItem());
-                        String vava=escolhas.getText();
+                        vava = escolhas.getText();
+                        vavaAnterior = escolhas.getText();
                         // List<String> VALORES = new ArrayList<>(Arrays.asList(vava.split(",")));
 
-                                escolhas.setText( vava+"\n" + entidades.lastElement());
+                        escolhas.setText( vava+"\n" + entidades.lastElement());
                         System.out.println(entidades);
 
                 } catch(Exception e)
@@ -64,14 +68,38 @@ public class controlleteste implements Initializable {
                         System.out.println(e);
                 }
         }
+        public void remove(javafx.event.ActionEvent actionEvent) {
+                try {
+                        entidades.removeElementAt(entidades.size()-1);
+                        Iterator<String> iterate = entidades.iterator();
+                        while(iterate.hasNext()) { vava = iterate.next(); }
+                        escolhas.setText(vava);
+                        System.out.println(entidades);
+                }catch (Exception e){
+                        System.out.println(e);
+                }
+        }
+        public void clear(javafx.event.ActionEvent actionEvent) {
+                try {
+                        escolhas.clear();
+                        entidades.clear();
+                        System.out.println(entidades);
+                }catch (Exception e){
+                        System.out.println(e);
+                }
+        }
         public void figaro(MouseEvent mouseEvent) throws SQLException {
-                String tutu =escolhas.getText();
-                Vector idcargo = new Vector(new Vector<>(Arrays.asList(tutu.split("\n"))));
-                idcargo.removeAll(Arrays.asList(""));
-                System.out.println(idcargo.get(0));
-                main.teste12(idcargo);
+                try {
 
-                main.changeScreen("main");
+                        String tutu =escolhas.getText();
+                        Vector idcargo = new Vector(new Vector<>(Arrays.asList(tutu.split("\n"))));
+                        idcargo.removeAll(Arrays.asList(""));
+                        System.out.println(idcargo.get(0));
+                        main.teste12(idcargo);
+
+                        main.changeScreen("main");
+
+                }catch (Exception e) {System.out.println(e);}
 
         }
 

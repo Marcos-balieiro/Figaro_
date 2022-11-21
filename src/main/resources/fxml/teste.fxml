@@ -42,10 +42,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ComboBox fx:id="cmboxze" layoutX="38.0" layoutY="72.0" prefHeight="25.0" prefWidth="266.0" />
-            <Button fx:id="add" layoutX="401.0" layoutY="72.0" mnemonicParsing="false" onAction="#add" text="Button" />
-            <TextArea fx:id="escolhas" editable="false" layoutX="38.0" layoutY="125.0" prefHeight="183.0" prefWidth="561.0" />
-            <Button fx:id="começar" layoutX="286.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#figaro" text="Start" />
+            <ComboBox fx:id="cmboxze" layoutX="40.0" layoutY="60.0" prefHeight="25.0" prefWidth="266.0" />
+            <Button fx:id="add" layoutX="345.0" layoutY="60.0" mnemonicParsing="false" onAction="#add" text="Adicionar" />
+            <TextArea fx:id="escolhas" editable="false" layoutX="40.0" layoutY="146.0" prefHeight="183.0" prefWidth="561.0" />
+            <Button fx:id="começar" layoutX="295.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#figaro" text="gravar" />
+            <Button fx:id="remover" layoutX="503.0" layoutY="35.0" mnemonicParsing="false" onAction="#remove" text="remover ultimo" />
+            <Button fx:id="removerTodos" layoutX="503.0" layoutY="85.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="98.0" text="remover todos" />
       </children>
     </AnchorPane>
   </children>
