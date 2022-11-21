@@ -45,6 +45,7 @@
             <ComboBox fx:id="cmboxze" layoutX="38.0" layoutY="72.0" prefHeight="25.0" prefWidth="266.0" />
             <Button fx:id="add" layoutX="401.0" layoutY="72.0" mnemonicParsing="false" onAction="#add" text="Button" />
             <TextArea fx:id="escolhas" editable="false" layoutX="38.0" layoutY="125.0" prefHeight="183.0" prefWidth="561.0" />
+            <Button fx:id="começar" layoutX="286.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#figaro" text="Start" />
       </children>
     </AnchorPane>
   </children>
