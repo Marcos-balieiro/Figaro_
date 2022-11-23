@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -18,13 +17,9 @@ import java.util.*;
 public class controlleteste implements Initializable {
 
         @FXML
-        private Text error;
-        @FXML
         private Button add;
         @FXML
         private Button começar;
-        @FXML
-        private Button cancelar;
 
         @FXML
         private ComboBox<String> cmboxze;
@@ -37,7 +32,7 @@ public class controlleteste implements Initializable {
         List<String> list = new ArrayList<>();
         Vector<String> entidades= new Vector<>();
 
-        private String vava = "";
+        private String vava;
         private String vavaAnterior;
         @FXML
         public void initialize(URL location, ResourceBundle resources) {
@@ -59,18 +54,6 @@ public class controlleteste implements Initializable {
         }
         public void add(javafx.event.ActionEvent actionEvent) {
                 try {
-                        error.setText("");
-                        if (cmboxze.getSelectionModel().getSelectedItem() == null) {
-                                error.setText("Escolha uma entidade antes de adicionar");
-                                return;
-                        }
-
-                        if (entidades.contains(cmboxze.getSelectionModel().getSelectedItem()))
-                        {
-                                error.setText("Não repita entidades!!");
-                                return;
-                        }
-
                         entidades.addElement(cmboxze.getSelectionModel().getSelectedItem());
                         vava = escolhas.getText();
                         vavaAnterior = escolhas.getText();
@@ -87,13 +70,9 @@ public class controlleteste implements Initializable {
         }
         public void remove(javafx.event.ActionEvent actionEvent) {
                 try {
-                        error.setText("");
                         entidades.removeElementAt(entidades.size()-1);
                         Iterator<String> iterate = entidades.iterator();
-                        while(iterate.hasNext()) {
-                                vava = vava + "\n " + iterate.next();
-                        }
-                        if (entidades.isEmpty()) { vava = ""; }
+                        while(iterate.hasNext()) { vava = iterate.next(); }
                         escolhas.setText(vava);
                         System.out.println(entidades);
                 }catch (Exception e){
@@ -102,10 +81,8 @@ public class controlleteste implements Initializable {
         }
         public void clear(javafx.event.ActionEvent actionEvent) {
                 try {
-                        error.setText("");
                         escolhas.clear();
                         entidades.clear();
-                        vava = "";
                         System.out.println(entidades);
                 }catch (Exception e){
                         System.out.println(e);
@@ -113,10 +90,7 @@ public class controlleteste implements Initializable {
         }
         public void figaro(MouseEvent mouseEvent) throws SQLException {
                 try {
-                        if (vava == ""){
-                                error.setText("Adicione uma entidade a ser verificada antes de gravar");
-                                return;
-                        }
+
                         String tutu =escolhas.getText();
                         Vector idcargo = new Vector(new Vector<>(Arrays.asList(tutu.split("\n"))));
                         idcargo.removeAll(Arrays.asList(""));
@@ -128,8 +102,6 @@ public class controlleteste implements Initializable {
                 }catch (Exception e) {System.out.println(e);}
 
         }
-
-
 
 
 
