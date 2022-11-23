@@ -14,10 +14,10 @@
             <ComboBox fx:id="cmboxze" layoutX="40.0" layoutY="60.0" prefHeight="25.0" prefWidth="266.0" promptText="Escolher entidade(s)" />
             <Button fx:id="add" layoutX="345.0" layoutY="60.0" mnemonicParsing="false" onAction="#add" text="Adicionar" />
             <TextArea fx:id="escolhas" editable="false" layoutX="40.0" layoutY="146.0" prefHeight="183.0" prefWidth="561.0" />
-            <Button fx:id="começar" layoutX="306.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#figaro" text="gravar" />
+            <Button fx:id="começar" layoutX="173.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#figaro" text="gravar" />
             <Button fx:id="remover" layoutX="503.0" layoutY="35.0" mnemonicParsing="false" onAction="#remove" text="remover ultimo" />
             <Button fx:id="removerTodos" layoutX="503.0" layoutY="85.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="98.0" text="remover todos" />
-            <Text fx:id="error" fill="RED" layoutX="162.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="error" fill="RED" layoutX="39.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       </children>
     </AnchorPane>
   </children>

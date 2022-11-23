@@ -61,7 +61,15 @@ public class controlleteste implements Initializable {
                 try {
                         error.setText("");
                         if (cmboxze.getSelectionModel().getSelectedItem() == null) {
-                                error.setText("Escolha uma entidade antes de adicionar");
+                                error.setText("Escolha uma entidade a ser adicionada");
+                                return;
+                        }
+                        if (cmboxze.getSelectionModel().getSelectedItem() == "TODAS AS ENTIDADES" && vava != "") {
+                                        error.setText("Não é possivel escolher TODAS AS ENTIDADES já havendo escolhido uma entidade");
+                                        return;
+                        }
+                        if (entidades.contains("TODAS AS ENTIDADES")) {
+                                error.setText("Não é possível escolher uma entidade já havendo escolhido TODAS AS ENTIDADES");
                                 return;
                         }
 
