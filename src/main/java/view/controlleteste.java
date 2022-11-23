@@ -90,6 +90,7 @@ public class controlleteste implements Initializable {
                         error.setText("");
                         entidades.removeElementAt(entidades.size()-1);
                         Iterator<String> iterate = entidades.iterator();
+                        vava = "";
                         while(iterate.hasNext()) {
                                 vava = vava + "\n " + iterate.next();
                         }
