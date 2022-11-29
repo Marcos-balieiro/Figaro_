@@ -55,52 +55,13 @@ public class MainController implements Initializable {
     String senha;
     LocalDate dataInicio = null;
     private BancoController batman = new BancoController();
-    String teste = null;
+
     controlleteste c= new controlleteste();
+    Vector tristana = new Vector<>();
 
     @FXML
     public String nameChange() throws InterruptedException, SQLException {
-        if ((teste == null)) {
-            Vector tristana = new Vector<>();
-            tristana.addElement("deus");
-            Vector entity= main.teste12(tristana);
-            System.out.println(entity+"1");
-            CPF = cpf_digitado.getText();
-            senha = senha_login.getText();
-            String TRF = cmboxTRFs.getSelectionModel().getSelectedItem();
-
-            GeralController login = new GeralController();
-            if (data_inicio.getValue() == null) {
-                String sasha = null;
-                String xuxa = null;
-                try {
-                    login.figarotodos(CPF, senha, entity, sasha, xuxa, TRF);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } catch (AWTException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            System.out.println(teste);
-            dataInicio = data_inicio.getValue();
-            LocalDate data_fin = data_fim.getValue();
-            DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String xuxa = dataInicio.format(formatadorDeData);
-            String sasha = data_fin.format(formatadorDeData);
-            Vector idcargo = new Vector(new Vector<>(Arrays.asList(teste.split(","))));
-            System.out.println(idcargo);
-            Thread.sleep(15000);
-            try {
-                login.figarotodos(CPF, senha, idcargo, sasha, xuxa, TRF);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (AWTException e) {
-                throw new RuntimeException(e);
-            }
-
-        } else {
-            System.out.println(teste);
-            if (CREDEN.isSelected()) {
+       if (CREDEN.isSelected()) {
                 CPF = cpf_digitado.getText();
                 senha = senha_login.getText();
                 Usuario usu = new Usuario();
@@ -113,7 +74,7 @@ public class MainController implements Initializable {
             try {
                 CPF = cpf_digitado.getText();
                 senha = senha_login.getText();
-                String Entity = cmbox.getSelectionModel().getSelectedItem();
+                Vector entity= main.teste12(tristana);
 
                 String TRF = cmboxTRFs.getSelectionModel().getSelectedItem();
 
@@ -121,31 +82,31 @@ public class MainController implements Initializable {
                 if (data_inicio.getValue() == null) {
                     String sasha = null;
                     String xuxa = null;
-                    if (Entity == "TODAS AS ENTIDADES") {
+                    if (entity.contains( "TODAS AS ENTIDADES")) {
                         Vector idcargo = LOPPING();
                         login.figarotodos(CPF, senha, idcargo, sasha, xuxa, TRF);
                     }
-                    login.figaro(CPF, senha, Entity, sasha, xuxa, TRF);
+                    login.figarotodos(CPF, senha, entity, sasha, xuxa, TRF);
                 }
                 dataInicio = data_inicio.getValue();
                 LocalDate data_fin = data_fim.getValue();
                 DateTimeFormatter formatadorDeData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 String xuxa = dataInicio.format(formatadorDeData);
                 String sasha = data_fin.format(formatadorDeData);
-                if (Entity == "TODAS AS ENTIDADES") {
+                if (entity.contains( "TODAS AS ENTIDADES")) {
                     Vector idcargo = LOPPING();
                     login.figarotodos(CPF, senha, idcargo, sasha, xuxa, TRF);
                 }
 
-                login.figaro(CPF, senha, Entity, sasha, xuxa, TRF);
+                login.figarotodos(CPF, senha, entity, sasha, xuxa, TRF);
             } catch (Exception e) {
                 System.out.println(e);
             }
 
             return null;
         }
-        return null;
-    }
+
+
 
 
 
@@ -157,6 +118,7 @@ public class MainController implements Initializable {
         senha_login.setText(USUARIO.getSENHA());
         cmboxTRFs.getItems().add("TRF1");
         cmboxTRFs.getItems().add("TRF6");
+        tristana.addElement("deus");
 
         Vector<Integer> idcargo = new Vector<>();
         try {
@@ -189,11 +151,6 @@ public class MainController implements Initializable {
             System.out.println("me fudi");;
         }
         return idcargo;
-    }
-    public void teste( String entitys){
-
-        this.teste = entitys;
-        System.out.println(teste);
     }
         public void abrirpasta(javafx.event.ActionEvent abrir) throws IOException {
         Desktop.getDesktop().open(new File("C:\\Figaro\\Processos"));

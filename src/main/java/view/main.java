@@ -62,12 +62,19 @@ public class main extends Application {
     public static Vector teste12(Vector src) throws SQLException {
         Vector teste1 = new Vector<>();
         System.out.println(src.get(0));
+
+        if(src.contains("TODAS AS ENTIDADES")){
+            Vector teste52 = src;
+            teste9 = teste52;
+            return teste9;
+        }
         ResultSet rs = batman.listaentidade();
         while (rs.next()) {
 
             teste1.add(rs.getString(2));
         }
             if (teste1.contains(src.get(0))) {
+
                 Vector teste52 = src;
                 teste9 = teste52;
                 return teste9;
