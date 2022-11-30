@@ -1,4 +1,4 @@
-package controller;
+package repositorio;
 
 import Banco.ConexaoSQLite;
 import modelo.Usuario;
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ControllerUsuario {
+public class UsuarioRepositorio {
     public Usuario usuario(){
         Usuario usuario = new Usuario();
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();

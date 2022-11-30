@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="453.0" prefWidth="642.0" style="-fx-background-color: #0078aa;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainController">
+   <children>
+      <Pane prefHeight="190.0" prefWidth="354.0" style="-fx-background-color: #0078aa;">
+         <children>
+            <Text fx:id="texto1" layoutX="31.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SENHA">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="texto" layoutX="31.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="cpf_digitado" layoutX="31.0" layoutY="47.0" promptText="CPF/CNJP" />
+            <PasswordField fx:id="senha_login" layoutX="31.0" layoutY="115.0" promptText="senha" />
+            <CheckBox fx:id="CREDEN" layoutX="31.0" layoutY="159.0" mnemonicParsing="false" onAction="#CREDENCI" text="Salvar Credencias" textFill="#0a0a0a" />
+         </children>
+      </Pane>
+      <Button fx:id="TRF1" layoutX="432.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#nameChange" prefHeight="80.0" prefWidth="150.0" text="Inicio" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="arquivos" layoutX="438.0" layoutY="387.0" mnemonicParsing="false" onAction="#abrirpasta" prefHeight="25.0" prefWidth="137.0" text="Pasta Download" />
+      <Text layoutX="29.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Procurar processos de:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="29.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Até:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="data_inicio" layoutX="29.0" layoutY="217.0" promptText="ontem" />
+      <DatePicker fx:id="data_fim" layoutX="29.0" layoutY="274.0" promptText="hoje" />
+      <ComboBox fx:id="cmboxTRFs" layoutX="432.0" layoutY="63.0" prefWidth="150.0" promptText="Escolher TRF" />
+      <Button fx:id="BuscaPersonalizada" layoutX="29.0" layoutY="387.0" mnemonicParsing="false" onAction="#trocaTela" prefHeight="25.0" prefWidth="149.0" text="Entidades" />
+   </children>
+</AnchorPane>

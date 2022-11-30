@@ -1,9 +1,9 @@
-package controller;
+package repositorio;
 
 import DAO.DAOEntidade;
 import modelo.Entidade;
 
-public class ControllerEntidade {
+public class EntidadeRepositorioFrame {
     DAOEntidade daoEntidade = new DAOEntidade();
 
     public boolean salvarEntidadeController(Entidade entidade){
