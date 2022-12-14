@@ -176,7 +176,7 @@ public class GeralController {
 
                 }
                 Set<String> agenmuni = new HashSet<String>(Arrays.asList(
-                        "SUPERINTENDÊNCIA DA ZONA FRANCA DE MANAUS", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO CENTRO-OESTE", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DA AMAZÔNIA", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO NORDESTE", "INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA", "FUNDAÇÃO NACIONAL DE SAÚDE", "FUNDO NACIONAL DESENVOLVIMENTO DA EDUCACAO", "AGÊNCIA NACIONAL DE MINERAÇÃO"));
+                        "SUPERINTENDÊNCIA DA ZONA FRANCA DE MANAUS","DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO CENTRO-OESTE", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DA AMAZÔNIA", "SUPERINTENDÊNCIA DO DESENVOLVIMENTO DO NORDESTE", "INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA", "FUNDAÇÃO NACIONAL DE SAÚDE", "FUNDO NACIONAL DESENVOLVIMENTO DA EDUCACAO", "AGÊNCIA NACIONAL DE MINERAÇÃO"));
                 if (agenmuni.contains(nome)) {
                     String vazio = "";
                     alerquina.entradadados(vazio, nome, test, data_fin, dataInicio, TRF);
@@ -189,7 +189,7 @@ public class GeralController {
                         proc.salvarprocessos(processo1);
                     }
                 }
-                if (nome == "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE") {
+                if (nome.equals( "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTE")) {
                     String vazio = "";
                     alerquina.entradadados(vazio, nome, test, data_fin, dataInicio, TRF);
                     Vector processoex = alerquina.exceções2(janelapadrao,nome, TRF);
