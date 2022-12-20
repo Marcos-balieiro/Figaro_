@@ -9,6 +9,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import modelo.PesquisaSave;
+import DAO.DAOEntidadesp;
 
 import java.net.URL;
 import java.sql.ResultSet;
@@ -55,6 +57,10 @@ public class controlleteste implements Initializable {
                 } catch (Exception e) {
                         System.out.println("odeio");
                 }
+                PesquisaSave save = batman.dadospesquisa();
+                escolhas.setText(save.getEntidadesp());
+
+
 
         }
         public void add(javafx.event.ActionEvent actionEvent) {
@@ -122,11 +128,16 @@ public class controlleteste implements Initializable {
         }
         public void figaro(MouseEvent mouseEvent) throws SQLException {
                 try {
+                        vava = escolhas.getText();
                         if (vava == ""){
                                 error.setText("Adicione uma entidade a ser verificada antes de gravar");
                                 return;
                         }
                         String tutu =escolhas.getText();
+                        PesquisaSave save = new PesquisaSave();
+                        DAOEntidadesp user = new DAOEntidadesp();
+                        save.setEntidadesp(tutu);
+                        user.salvarentisp(save);
                         Vector idcargo = new Vector(new Vector<>(Arrays.asList(tutu.split("\n"))));
                         idcargo.removeAll(Arrays.asList(""));
                         System.out.println(idcargo.get(0));

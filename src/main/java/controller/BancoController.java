@@ -1,10 +1,7 @@
 package controller;
 
 import Banco.ConexaoSQLite;
-import modelo.Assunto;
-import modelo.Classe_Judicial;
-import modelo.Entidade;
-import modelo.Usuario;
+import modelo.*;
 import repository.SeleniumTRF1;
 
 import java.sql.PreparedStatement;
@@ -130,6 +127,22 @@ public class BancoController {
         }
         conexaoSQLite.desconectar();
         return usuario;
+    }
+    public PesquisaSave dadospesquisa() {
+        PesquisaSave pesquisaSave = new PesquisaSave();
+        ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
+        conexaoSQLite.conectar();
+        String sql = "SELECT * FROM Entidadesp where id=1";
+        PreparedStatement statement = conexaoSQLite.criarPreparedStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        try {
+            ResultSet resultSet = statement.executeQuery();
+            pesquisaSave.setEntidadesp(resultSet.getString("SaveEnti"));
+        }
+        catch (Exception e){
+
+        }
+        conexaoSQLite.desconectar();
+        return pesquisaSave;
     }
 }
 

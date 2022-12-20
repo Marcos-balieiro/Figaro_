@@ -120,6 +120,7 @@ public class MainController implements Initializable {
         cmboxTRFs.getItems().add("TRF6");
         tristana.addElement("deus");
 
+
         Vector<Integer> idcargo = new Vector<>();
         try {
             ResultSet rs = batman.listaentidade();
