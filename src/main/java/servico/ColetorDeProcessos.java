@@ -1,10 +1,7 @@
 package servico;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.springframework.stereotype.Component;
-
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -15,22 +12,11 @@ import java.util.Vector;
 @Component
 public class ColetorDeProcessos extends LoginTRF {
 
-    String urlpesquisaCol = null;
-
-    public void setEnderecoColetor() {
-
-        if(TRF.equals("TRF1")){
-            urlpesquisaCol = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
-        }else{
-            urlpesquisaCol = "https://pje1g.trf6.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
-        }
-    }
-
     public Download download = new Download();
 
     public Vector<String> selecionaProcessos  (String janelaPadrao, int j, String nome)  {
 
-        setEnderecoColetor();
+
 
         Vector<String> processos = new Vector<String>();
         try {

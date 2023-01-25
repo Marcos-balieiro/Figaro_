@@ -14,19 +14,7 @@ import java.util.Set;
 @Component
 public class Download extends LoginTRF {
 
-    String urlpesquisa = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
-
-    String urlpesquisaDwn = null;
-
-    public void setEnderecoColetor() {
-
-        if(TRF.equals("TRF1")){
-            urlpesquisaDwn = "https://pje1g.trf1.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
-        }else{
-            urlpesquisaDwn = "https://pje1g.trf6.jus.br/pje/Processo/ConsultaProcesso/listView.seam";
-        }
-    }
-    public int z = 1;
+       public int z = 1;
 
 
 

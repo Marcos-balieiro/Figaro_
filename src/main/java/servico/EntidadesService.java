@@ -13,7 +13,7 @@ import java.util.Set;
 public class EntidadesService extends LoginTRF {
 
 
-    SeleniumConsulta alerquina = new SeleniumConsulta();
+    ConsultaSelenium alerquina = new ConsultaSelenium();
     EntidadesRepositorio coringa = new EntidadesRepositorio();
 
     DAOprocessos proc = new DAOprocessos();
@@ -37,11 +37,11 @@ public class EntidadesService extends LoginTRF {
             Set<EntidadeMapeada> listaDeBusca = coringa.EntidadesMapeadas();
 
 
-                           listaDeBusca.stream().forEach(EntidadeMapeada->alerquina.irnserirParmetros(
-                           EntidadeMapeada.getNome(),
-                           EntidadeMapeada.getAssunto(),
-                           EntidadeMapeada.getClasseJudicial(),
-                           EntidadeMapeada.getGrupo(),
+                           listaDeBusca.stream().forEach(e->alerquina.irnserirParmetros(
+                           e.getNome(),
+                           e.getAssunto(),
+                           e.getClasseJudicial(),
+                           e.getGrupo(),
                            janelapadrao,
                            data_fin,
                            dataInicio));
@@ -58,11 +58,11 @@ public class EntidadesService extends LoginTRF {
 
         Set<EntidadeMapeada> listaDeBusca = coringa.EntidadeMapeada(entity);
         try {
-            listaDeBusca.stream().forEach(EntidadeMapeada -> alerquina.irnserirParmetros(
-                    EntidadeMapeada.getNome(),
-                    EntidadeMapeada.getAssunto(),
-                    EntidadeMapeada.getClasseJudicial(),
-                    EntidadeMapeada.getGrupo(),
+            listaDeBusca.stream().forEach(e -> alerquina.irnserirParmetros(
+                    e.getNome(),
+                    e.getAssunto(),
+                    e.getClasseJudicial(),
+                    e.getGrupo(),
                     janelapadrao,
                     data_fin,
                     dataInicio));
@@ -79,11 +79,11 @@ public class EntidadesService extends LoginTRF {
         for (int i=0;i<entidades.size();i++) {
             Set<EntidadeMapeada> listaDeBusca = coringa.EntidadeMapeada(entidades.get(i));
             try {
-                listaDeBusca.stream().forEach(EntidadeMapeada -> alerquina.irnserirParmetros(
-                        EntidadeMapeada.getNome(),
-                        EntidadeMapeada.getAssunto(),
-                        EntidadeMapeada.getClasseJudicial(),
-                        EntidadeMapeada.getGrupo(),
+                listaDeBusca.stream().forEach(e -> alerquina.irnserirParmetros(
+                        e.getNome(),
+                        e.getAssunto(),
+                        e.getClasseJudicial(),
+                        e.getGrupo(),
                         janelapadrao,
                         data_fin,
                         dataInicio));
@@ -92,7 +92,7 @@ public class EntidadesService extends LoginTRF {
 
             }
         }
-            driver.close();
+           driver.close();
     }
 
 
